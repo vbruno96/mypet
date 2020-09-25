@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Varta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300;600&display=swap');
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+html::-webkit-scrollbar-track {
+    background-color: #1F2123;
+    margin-top: 60px;
+}
+html::-webkit-scrollbar {
+    width: 6px;
+    background: #1F2123;
+   
+}
+html::-webkit-scrollbar-thumb {
+    background: #E86303;
+    border-radius: 10px;
+   
+}
+
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: #1F2123;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a{
+    color: #fff;
+    font-family: 'Varta';
+    text-decoration: none;
+    margin-right: 3%;
+    font-size: 20px;
+}
+
+.nav-link a:hover{
+    color: #E86303;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    width: 15%;
+    margin-left: 5% ;
+}
+
+
+.logo img{
+    width: 50px;
+    height: 50px;
+}
+
+
+.logo a{
+    font-size: 35px;
+    margin-top: 10px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+
+.logo .pet{
+    color: #E86303;
+}
+
+.nav-link{
+    width: 25%;
+}
+
+.container-login{
+    display: flex;
+    font-family: 'Varta';
+    margin-right: 5%;
+    color: #fff;
+   
+}
+
+.container-login input{
+    width: 150px;
+    outline: none;
+    margin-right: 10px;
+    margin-left: 5px;
+    border-radius: 1px;
+    border: none;
+    padding-left: 10px;
+}
+
+.login-btn{
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: #FD8025;
+    cursor: pointer;
+}
+
+.container-bg{
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(/src/image/bg-container.jpg);
+
+}
+
+.container-form{
+    font-family: 'Varta';
+    width:100rem;
+    height: 80vh;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-right: 5%;
+    margin-top: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+
+
+
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 300;
+    color: #1B1B1C;
+    width: 100%;
+    height: 48px;
+}
+
+.title-input-name, .title-input-last-name{
+    width: 50%;
+    font-weight: 600;
+    color: #4b4545d2;
+}
+
+.title-input{
+    width: 100%;
+    font-weight: 600;
+    color: #4b4545d2;
+}
+
+
+.name-input{
+ 
+    max-width: 95%;
+    height: 60px;
+    border: 1px solid #4B4545;
+    border-radius: 10px;
+    outline: none;
+   
+}
+
+
+.last-name-input{
+    
+    max-width: 99%;
+    height: 60px;
+    border: 1px solid #4B4545;
+    border-radius: 10px;
+    margin-left: 5px;
+    outline: none;
+
+}
+ 
+.email-input, .password-input, .confirm-password-input{
+   min-width: 100%;
+    height: 60px;
+    border: 1px solid #4B4545;
+    border-radius: 10px;
+    outline: none;
+}
+
+.name-input, .last-name-input, .email-input, .password-input, .confirm-password-input{
+    font-size: 25px;
+    padding-left: 0.5rem;
+    color: #202020;
+}
+
+.name-input:hover, .last-name-input:hover, .email-input:hover, .password-input:hover, .confirm-password-input:hover,
+.name-input:focus, .last-name-input:focus, .email-input:focus, .password-input:focus, .confirm-password-input:focus
+{
+    border: 1px solid #FD8025;
+}
+
+.cadastrar-btn{
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    width: 148px;
+    height: 54px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FD8025;
+    outline: none;
+    cursor: pointer;
+}
+
+.container-description{
+    font-family: 'Varta';
+    margin: 1rem;
+    margin-left: 5%;
+    padding: 2rem;
+    border-radius: 10px;
+    display: inline;
+    color: #E8E4E4;
+    background-color: rgba(0, 0, 0, 0.055);
+}
+
+.my, .pet{
+    font-weight: 600;
+}
+
+.title-description{
+    font-size: 40px;
+    color: #fff;
+}
+
+.description{
+   font-size: 30px;
+   margin-top: 2%;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+
+}
+
+
+.search-container{
+    padding-top: 0px;
+    width: 91%;
+    height: 10vh;
+    margin-top: 3%;
+    border: solid 1px gray;
+    border-radius: 10px;
+    overflow: hidden;
+   
+    
+}
+
+
+.search-container:hover{
+    border-color: orange;
+}
+
+.search-container button:hover{
+    
+    background-color: #F2994A;
+    color: #fff;
+}
+
+.search-container input{
+    font-family: 'Varta';
+    color: #4B4545;
+    font-size: 35px;
+    padding-left: 15px ;
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px 0 0 10px;
+    margin-right: -19px;
+
+}
+.search-container input::-webkit-input-placeholder{
+    color: #4B4545;
+    opacity: 0.4;
+}
+
+
+
+.search-container button{
+    font-size: 20px;
+    height: 101%;
+    width: 10%;
+    border: none;
+    outline: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+
+    
+
+}
