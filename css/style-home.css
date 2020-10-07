@@ -54,21 +54,35 @@
   bottom: 64px;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   color: #f0f0f0;
   padding: 0 64px;
 }
 
-/* .header-content h1 {
-  font-size: 48px;
-  margin-bottom: 16px;
+.info-header {
+  width: 300px;
+  padding: 2rem;
+  position: relative;
 }
 
-.header-content p {
-  font-size: 1.3rem;
-  display: block;
-  padding-bottom: 2rem;
-} */
+.info-header span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 350px;
+  color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+
+.info-header h3 {
+  font-size: 32px;
+  margin-bottom: 1rem;
+}
+
+.info-header p {
+  font-size: 24px;
+}
 
 nav {
   position: fixed;
