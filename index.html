@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-global.css" />
+    <link rel="stylesheet" href="css/style-home.css" />
     <title>Document</title>
   </head>
   <body>
@@ -14,13 +15,13 @@
         </video>
         <div class="header-overlay"></div>
         <div class="header-content">
-          <h1>Lorem Ipsum</h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.
-          </p>
-          <a href="#" class="btn btn-secondary">Saiba mais</a>
+          <form id="register">
+            <h1>Cadastre-se</h1>
+            <input id="nome" placeholder="Nome completo" />
+            <input id="telefone" placeholder="Telefone" />
+            <input id="email" placeholder="Email" />
+            <a href="#" class="btn btn-secondary">Cadastrar</a>
+          </form>
         </div>
       </div>
       <nav>
@@ -34,7 +35,15 @@
           <li>Doe</li>
           <li>Sobre</li>
           <li>Contato</li>
-          <li>Entrar | Cadastrar</li>
+          <li id="menu-login">
+            Entrar
+
+            <form id="login">
+              <input id="email" placeholder="Email" />
+              <input id="senha" placeholder="Senha" />
+              <a href="#" class="btn btn-secondary">Login</a>
+            </form>
+          </li>
         </ul>
       </nav>
     </header>

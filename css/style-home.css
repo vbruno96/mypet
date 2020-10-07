@@ -8,11 +8,8 @@
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  box-sizing: border-box;
 }
-
-/* body {
-  overflow-x: hidden;
-} */
 
 .header-container {
   position: relative;
@@ -22,7 +19,7 @@
 
 .header-container video {
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   z-index: -1;
 }
@@ -55,14 +52,14 @@
 .header-content {
   position: absolute;
   bottom: 64px;
-  left: 64px;
-  width: 300px;
-
-  flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
   color: #f0f0f0;
+  padding: 0 64px;
 }
 
-.header-content h1 {
+/* .header-content h1 {
   font-size: 48px;
   margin-bottom: 16px;
 }
@@ -71,42 +68,7 @@
   font-size: 1.3rem;
   display: block;
   padding-bottom: 2rem;
-}
-
-.btn {
-  padding: 1rem 2rem;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.2rem;
-  position: relative;
-  transition: 0.5s;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, #fff, transparent);
-  transition: 0.5s;
-}
-.btn:hover::before {
-  left: 100%;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  border: 3px solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-  color: #fff;
-}
+} */
 
 nav {
   position: fixed;
@@ -147,5 +109,59 @@ nav ul {
 }
 
 nav ul li {
-  margin-right: 16px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  transition: 0.5s;
+}
+
+nav ul li:nth-child(6) {
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+nav ul li:hover {
+  background: rgba(0, 0, 0, 0.2);
+  overflow: visible;
+}
+
+#register {
+  background: rgba(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+#register h1 {
+  font-size: 32px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#register input {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#menu-login {
+  position: relative;
+}
+
+#menu-login:hover #login {
+  opacity: 1;
+}
+
+#login {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#login input {
+  width: 100%;
+  margin-bottom: 1rem;
 }
