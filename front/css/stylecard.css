@@ -9,18 +9,13 @@
 body {
   font-family: "Roboto", sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 /* *************CARD INI************ */
 .card-container {
   position: relative;
-  /* display: flex; */
-  /* flex-direction: row;
-  flex-wrap: wrap; */
-  justify-content: space-around;
-  border: 1px red solid;
 }
 
 .card-box {
@@ -177,9 +172,6 @@ body {
   /* border: 2px #4f4f4f solid; */
   padding: 10px 20px 30px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 16px;
-  left: 16px;
 }
 
 .filter-content {
@@ -339,3 +331,35 @@ input[type="range"]::-moz-range-thumb {
   margin-left: 2px;
 }
 /* *************FILTER FIM************ */
+
+/* *************ANNOUNCEMENT INI************ */
+.announcement-container {
+  width: 500px;
+}
+
+.announcement-content {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.announcement-content img {
+  width: 100px;
+}
+.announcement-content .info {
+  height: 80%;
+  padding: 8px;
+}
+
+.announcement-content .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.announcement-content:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* *************ANNOUNCEMENT FIM************ */
