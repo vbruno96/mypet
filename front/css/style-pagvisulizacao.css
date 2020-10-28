@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900");
+
+@import url("https://fonts.googleapis.com/css2?family=Clicker+Script");
+
+/* variaveis para cores */
+:root{
+    --preto: #000;
+    --cinza: #BDBDBD;
+    --cinza-escuro: #4F4F4F;
+    --cinza-claro: #828282;
+
+    --vermelho: #EB5757;
+    --laranja: #F2994A;
+    --amarelo: #F2C94C;
+    --violeta: #BB6BD9;
+    --roxo: #9B51E0;
+
+
+    --verde: #27AE60;
+    --verde-escuro: #219653;
+    --verde-claro: #6FCF97;
+
+    --azul: #2D9CDB;
+    --azul-escuro: #2F80ED;
+    --azul-claro: #56CCF2;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Roboto';
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+.logo img{
+    width: 65px;
+    height: 65px;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+.logo p{
+    font-size: 35px;
+}
+.nav-link{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-link a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: #fafafa;
+}
+.login-btn button{
+    width: 110px;
+    height: 40px;
+    border-radius: 30px 70px 30px 70px;
+    border: none;
+}
+
+.navbar{
+    max-width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    background-color: var(--violeta)
+}
+
+.container{
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    
+}
+
+.perfil-ong{
+    width: 100%;
+    height: 60px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-perfil{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo-perfil img{
+    width: 75px;
+}
+
+.nome{
+    font-size: 25px;
+    margin-left: 5px;
+}
+.contato{
+    width: 145px;
+    height: 39px;
+    background-color:#fafafa;
+    outline: none;
+    border: 1px solid #9999;
+    border-radius: 5px;
+    margin-left: 50px;
+    font-size: 25px;
+    color: #333;
+}
+
+.perfil-pet{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgb(223, 216, 216);
+    -webkit-box-shadow: 1px 0px 16px 0px rgba(0,0,0,0.42);
+    -moz-box-shadow: 1px 0px 16px 0px rgba(0,0,0,0.42);
+    box-shadow: 1px 0px 16px 0px rgba(0,0,0,0.42);}
+
+.perfil-pet img{
+    width: 70%;
+}
+
+
+.descricao{
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 0%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.descricao-container{
+    width: 30%;
+    height: 100%;
+    
+}
+
+
+.nome-pet{
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 40px;
+
+}
+
+.raca,.porte,.idade,.pelagem,.interage-crianca,.interage-animais,.cor{
+    width: 100%;
+    height: 20px;
+    margin-bottom: 7px;
+    font-size: 20px;
+
+}
+
+.controles{
+    position: absolute;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  
+
+}
+
+.controles i{
+    opacity: 30%;
+    color: #fafafa;
+}
+
+.controles i:hover{
+    opacity: 60%;
+    color: #fafafa;
+    cursor: pointer;
+    
+     
+}
+
+.titulo{
+    margin-bottom: 10px;
+    font-size: 20px;
+
+}
+
+.historia{
+    text-justify: justify;
+}
