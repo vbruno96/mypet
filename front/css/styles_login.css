@@ -1,0 +1,172 @@
+.close {
+  font-size: 2rem;
+  color: #f0f0f0;
+  position: absolute;
+  right: 20vw;
+  top: 20vh;
+  cursor: pointer;
+}
+
+.containerLoginRegister {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.contentLoginRegister {
+  width: 900px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.info p {
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+@media (max-width: 992px) {
+  .info p {
+    font-size: 1em;
+  }
+}
+
+.formsContainer {
+  position: absolute;
+  width: 50%;
+  height: 450px;
+  background-color: #111111;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.formsContainerMoveRight {
+  left: 70%;
+  transition: 0.7s ease-out;
+}
+
+.formsContainerMoveLeft {
+  left: 30%;
+  transition: 0.7s ease-out;
+}
+
+form h2,
+form label {
+  color: #f0f0f0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+form h1 {
+  text-align: center;
+}
+
+.formLogin {
+  margin-bottom: 1rem;
+}
+
+.formLogin,
+.formRegister {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+form button {
+  width: 100%;
+}
+
+form a {
+  margin-top: 3em;
+  text-decoration: none;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  form a {
+    margin-bottom: 3em;
+  }
+  body {
+    background-size: 200vw 100vh;
+  }
+}
+
+.formHide {
+  display: none;
+  transition: 5s;
+}
+
+.containerMobile {
+  margin: 2em;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  transform: translate(0%, 25%);
+}
+
+.contentMobile {
+  position: absolute;
+  width: 80%;
+  transform: translate(12%, 0%);
+}
+
+.moveContentMobileBottom {
+  top: 1%;
+  transition: 1s;
+}
+
+.moveContentMobileTop {
+  top: -92%;
+  transition: 1s;
+}
+
+.containerMobile > button {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #777777;
+  position: absolute;
+  right: 1em;
+}
+
+.containerMobile > button:hover {
+  color: #ffffff;
+  transition: 1s;
+}
+
+.contentMobile .formRegister {
+  margin-top: 2em;
+}
+
+.moveContentMobileButtonBottom {
+  top: 92%;
+  transition: 1s;
+}
+
+.moveContentMobileButtonTop {
+  top: 2%;
+  transition: 1s;
+}

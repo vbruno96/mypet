@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style-global.css" />
     <link rel="stylesheet" href="css/style-home.css" />
+    <link rel="stylesheet" href="css/styles_login.css" />
+
     <title>Document</title>
   </head>
   <body>
@@ -19,45 +21,41 @@
             <span>1</span>
             <h3>Pense em tudo</h3>
             <p>
-              Pense bastante antes de adotar, tenha certeza que toda a sua família concorda, 
-              que você tenha condições de absorver mais gastos e se está pronto para adotar um animal.
+              Pense bastante antes de adotar, tenha certeza que toda a sua
+              família concorda, que você tenha condições de absorver mais gastos
+              e se está pronto para adotar um animal.
             </p>
           </div>
           <div class="info-header">
             <span>2</span>
             <h3>Escolha com o coração</h3>
             <p>
-              Na hora da adoção não escolha apenas pela aparência, vá mais pela personalidade. 
-              Considere adotar os animais que mais precisam e os que possuem deficiências.
+              Na hora da adoção não escolha apenas pela aparência, vá mais pela
+              personalidade. Considere adotar os animais que mais precisam e os
+              que possuem deficiências.
             </p>
           </div>
           <div class="info-header">
             <span>3</span>
             <h3>Seja responsável</h3>
             <p>
-              Depois de conhecer e escolher o seu novo amigo você possivelmente terá que 
-              assinar um termo de adoção que visa evitar adoções por impulso e devoluções traumáticas.
+              Depois de conhecer e escolher o seu novo amigo você possivelmente
+              terá que assinar um termo de adoção que visa evitar adoções por
+              impulso e devoluções traumáticas.
             </p>
           </div>
           <div class="info-header">
             <span>4</span>
             <h3>Ofereça uma vida maravilhosa</h3>
             <p>
-              cuidar do seu novo amigo - isso inclui uma boa alimentação, visitas frequentes ao 
-              veterinário e colaborar com o processo de pós-adoção, enviar fotos e esperar visitas do doador.
+              cuidar do seu novo amigo - isso inclui uma boa alimentação,
+              visitas frequentes ao veterinário e colaborar com o processo de
+              pós-adoção, enviar fotos e esperar visitas do doador.
             </p>
           </div>
-
-          <form id="register">
-            <h1>Cadastre-se</h1>
-            <input id="nome" placeholder="Nome completo" />
-            <input id="telefone" placeholder="Telefone" />
-            <input id="email" placeholder="Email" />
-            <a href="#" class="btn btn-secondary">Cadastrar</a>
-          </form>
         </div>
       </div>
-      <nav>
+      <nav id="menu" class="bg-menu-hide">
         <div class="brand">
           <img src="assets/logo.png" alt="logo" />
           <span><strong>Me</strong>Adote</span>
@@ -68,17 +66,100 @@
           <li>Doe</li>
           <li>Sobre</li>
           <li>Contato</li>
-          <li id="menu-login">
-            Entrar
-
-            <form id="login">
-              <input id="email" placeholder="Email" />
-              <input id="senha" placeholder="Senha" />
-              <a href="#" class="btn btn-secondary">Login</a>
-            </form>
-          </li>
+          <li onclick="openCloseLogin()">Entrar</li>
         </ul>
       </nav>
+
+      <div id="containerLoginRegister" class="containerLoginRegister formHide">
+        <div id="close" class="close" onclick="openCloseLogin()">X</div>
+        <div class="contentLoginRegister">
+          <div class="info">
+            <p>JÁ TEM CADASTRO?</p>
+            <button class="btn btn-secondary" onclick="moveFormsContainer()">
+              Realizar login
+            </button>
+          </div>
+
+          <div class="info">
+            <p>AINDA NÃO TEM CADASTRO?</p>
+            <button class="btn btn-secondary" onclick="moveFormsContainer()">
+              Realizar cadastro
+            </button>
+          </div>
+
+          <div
+            id="formsContainer"
+            class="formsContainer formsContainerMoveLeft"
+          >
+            <form id="formLogin" class="formLogin">
+              <h2>Login</h2>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputLoginEmail"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputLoginPassword"
+                  placeholder="Senha"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-secondary">Login</button>
+              <a href="#" class="text-center">Esqueci minha senha</a>
+            </form>
+
+            <form id="formRegister" class="formRegister formHide">
+              <h2>Registre-se</h2>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputRegisterName"
+                  placeholder="Nome"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputRegisterEmail"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputRegisterPassword"
+                  placeholder="Senha"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputRegisterPasswordConfirm"
+                  placeholder="Confirmar senha"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-secondary">Cadastrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="section section-a">
@@ -86,50 +167,59 @@
         <section class="informacoes">
           <h1>Você sabia?</h1>
           <p>
-            <br>
-            A Organização Mundial da Saúde estima que só no Brasil existam 
-            mais de <strong>30 milhões</strong> de animais abandonados, entre 
-            <strong>10 milhões</strong> de gatos e <strong>20 milhões</strong> de cães. 
-            
+            <br />
+            A Organização Mundial da Saúde estima que só no Brasil existam mais
+            de <strong>30 milhões</strong> de animais abandonados, entre
+            <strong>10 milhões</strong> de gatos e
+            <strong>20 milhões</strong> de cães.
           </p>
         </section>
         <section class="informacoes">
           <p>
-            Em cidades de grande porte, para cada <strong>cinco</strong> habitantes há um cachorro. Destes, 
-            <strong>10%</strong> estão abandonados. Em muitos casos o número chega a <strong>1/4</strong> da população
-            humana. E grande parte desse número de animais abandonados estão sob os cuidados de ongs e protetores 
-            de animais.
+            Em cidades de grande porte, para cada
+            <strong>cinco</strong> habitantes há um cachorro. Destes,
+            <strong>10%</strong> estão abandonados. Em muitos casos o número
+            chega a <strong>1/4</strong> da população humana. E grande parte
+            desse número de animais abandonados estão sob os cuidados de ongs e
+            protetores de animais.
           </p>
         </section>
         <section class="informacoes">
           <p>
-            A quarentena durante a pandemia do novo <strong>corona</strong> vírus também tem impactado negativamente 
-            a vida dos pets. ONGs de diferentes partes do Brasil relatam que o número de <strong>animais abandonados</strong> 
-            aumentou durante esse período, assim como os <strong>maus-tratos</strong>.
+            A quarentena durante a pandemia do novo
+            <strong>corona</strong> vírus também tem impactado negativamente a
+            vida dos pets. ONGs de diferentes partes do Brasil relatam que o
+            número de <strong>animais abandonados</strong> aumentou durante esse
+            período, assim como os <strong>maus-tratos</strong>.
           </p>
         </section>
         <section class="informacoes">
           <p>
-            Em resposta a esse aumento de maus tratos e abandono a nova <strong>Lei 14.064/2020</strong> foi sancionada e 
-            aumentou a pena para maus-tratos contra cães e gatos. 
+            Em resposta a esse aumento de maus tratos e abandono a nova
+            <strong>Lei 14.064/2020</strong> foi sancionada e aumentou a pena
+            para maus-tratos contra cães e gatos.
           </p>
         </section>
         <section class="informacoes">
           <h1>Adote com consciência</h1>
           <p>
-            <br>
-            Os cuidadores de cães e gatos são unânimes ao afirmar: o <strong>amor</strong> por um animal 
-            não tem <strong>raça</strong> ou <strong>cor</strong>. 
-            A relação com os amiguinhos de quatro patas deveria envolver apenas <strong>carinho</strong>, 
-            <strong>alegrias</strong> e <strong>responsabilidades</strong>. 
-            <br><br>
-            Infelizmente, os mesmos critérios estéticos que muitas vezes 
-            excluem pessoas dos meios sociais, têm sido levados até os bichinhos, através dos humanos.
-            <br><br>
+            <br />
+            Os cuidadores de cães e gatos são unânimes ao afirmar: o
+            <strong>amor</strong> por um animal não tem <strong>raça</strong> ou
+            <strong>cor</strong>. A relação com os amiguinhos de quatro patas
+            deveria envolver apenas <strong>carinho</strong>,
+            <strong>alegrias</strong> e <strong>responsabilidades</strong>.
+            <br /><br />
+            Infelizmente, os mesmos critérios estéticos que muitas vezes excluem
+            pessoas dos meios sociais, têm sido levados até os bichinhos,
+            através dos humanos.
+            <br /><br />
             <strong>Não compre! Adote!</strong>
           </p>
         </section>
       </div>
     </section>
+    <script src="js/script-home.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

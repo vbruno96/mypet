@@ -8,6 +8,8 @@ input {
   border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
   color: #f0f0f0;
   letter-spacing: 1.3px;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 ::placeholder {
@@ -25,6 +27,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem 0;
 }
 
 .btn:before {
