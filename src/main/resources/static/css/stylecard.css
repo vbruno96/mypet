@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300;400;500;600&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Varta';
+}
+body{
+  height: 100vh;
+  max-width: 100%;
+}
+
+.navbar{
+  max-width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #7c3eb6;
+  align-items: center;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 4;
+}
+
+
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo a{
+  text-decoration: none;
+  color: #fafafa;
+  font-size: 30px;
+}
+.logo img{
+  margin-top: -10px;
+}
+
+.nav-links{
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-links a{
+  text-decoration: none;
+  margin-right: 20pxpx;
+  font-size: 20px;
+  padding: 0.4rem;
+  color: #fafafa;
+
+  opacity: 1;
+
+  transition: opacity 1500ms;
+}
+
+.nav-links a:hover{
+
+  color: #222;
+}
+
+.container{
+
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.dashboard{
+  width: 25%;
+  height: 100%;
+  border-right: 1px solid #f0f0f0;
+  background-color: white;
+  box-shadow: 6px 0px 15px -2px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 5;
+}
+
+.nav-user{
+  max-width: 100%;
+  height: 50px;
+  background-color: #f0f0f0;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.perfil-user{
+  display: flex;
+  align-items: center;
+}
+
+.nav-user img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.nav-user a{
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.menu{
+  margin-right: 1rem;
+  cursor: pointer;
+  color: #444;
+}
+
+.controles-dash{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+.filtro, .likes{
+  margin-right: 20px;
+  font-size: 20px;
+  position: relative;
+  cursor: pointer;
+  color: #333;
+}
+
+.active::after{
+  content: "";
+  height: 3px;
+  width: 100%;
+  background-color: #9B51E0;
+  position: absolute;
+  border-radius: 10px;
+  top: 25px;
+
+}
+
+.card-container{
+  width: 75%;
+  height: 100%;
+  background-image: url(/assets/15387-NQJRGH.jpg);
+  background-position: center;
+  background-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.card-container::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #1c0bb850;
+  position: absolute;
+  z-index: 1;
+}
+
+
+.card{
+  width: 400px;
+  height: 550px;
+  background-color: white;  
+  border-radius: 10px;
+  border: 1px solid #a0a0a0d3;
+  position: relative;
+  z-index: 2;
+}
+
+.controles-escolha{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 10px 10px ;
+  position: absolute;
+  bottom: 0;
+}
+
+.btn-like, .btn-dislike{
+  margin: 0 5px;
+  color: #a0a0a0;
+}
+.btn-like:hover{
+  cursor: pointer;
+  color: rgb(1, 156, 1);
+}
+.btn-dislike:hover{
+  cursor: pointer;
+  color: rgb(206, 10, 3);
+}
