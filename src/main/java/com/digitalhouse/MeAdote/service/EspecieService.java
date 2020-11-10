@@ -3,6 +3,8 @@ package com.digitalhouse.MeAdote.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Especie;
 import com.digitalhouse.MeAdote.repository.EspecieRepository;
 
@@ -15,7 +17,7 @@ public class EspecieService extends BaseService<Especie> {
 	}
 
 	@Override
-	public Especie update(Especie novo) {
+	public Especie update(Especie novo) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Especie antigo = this.findById(novo.getId());
 		
 		antigo.setNome(novo.getNome());

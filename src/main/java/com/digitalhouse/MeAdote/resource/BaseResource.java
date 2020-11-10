@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalhouse.MeAdote.configuration.SwaggerPageable;
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.BaseModel;
 import com.digitalhouse.MeAdote.service.BaseService;
 
@@ -41,7 +43,7 @@ public class BaseResource<Entity> {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Entity entity) {
+	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Entity entity) throws ObjectNotFoundException, DataIntegrityViolationException {
 		((BaseModel) entity).setId(id);
 		
 		this.service.update(entity);
@@ -50,7 +52,7 @@ public class BaseResource<Entity> {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Entity> findById(@PathVariable Long id) {
+	public ResponseEntity<Entity> findById(@PathVariable Long id) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Entity entity = this.service.findById(id);
 		
 		return ResponseEntity.ok(entity);
@@ -65,7 +67,7 @@ public class BaseResource<Entity> {
 	}
  	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
+	public ResponseEntity<Void> delete(@PathVariable Long id) throws ObjectNotFoundException, DataIntegrityViolationException {
 		this.service.deleteById(id);
 		
 		return ResponseEntity.noContent().build();

@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.BaseModel;
 
 @Service
@@ -27,15 +29,15 @@ public abstract class BaseService<Entity>{
 		return repository.save(entity);
 	}
 	
-	public abstract Entity update(Entity entity);
+	public abstract Entity update(Entity entity) throws ObjectNotFoundException, DataIntegrityViolationException;
 	
-	public Entity findById(Long id) {
+	public Entity findById(Long id) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Optional
 			.ofNullable(id)
-			.orElseThrow( () -> new RuntimeException("O id não pode ser nulo."));
+			.orElseThrow( () -> new DataIntegrityViolationException("O id não pode ser nulo."));
 		
 		return this.repository.findById(id)
-				.orElseThrow( () -> new RuntimeException("Registro não encontrado."));
+				.orElseThrow( () -> new ObjectNotFoundException("id"));
 	}
 	
 	public List<Entity> findAll() {
@@ -46,7 +48,7 @@ public abstract class BaseService<Entity>{
 		return this.repository.findAll(pageable);
 	}
 	
-	public void deleteById(Long id) {
+	public void deleteById(Long id) throws ObjectNotFoundException, DataIntegrityViolationException {
 		this.findById(id);		
 		this.repository.deleteById(id);
 	}

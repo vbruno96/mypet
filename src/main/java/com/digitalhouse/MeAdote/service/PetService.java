@@ -3,6 +3,8 @@ package com.digitalhouse.MeAdote.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Pet;
 import com.digitalhouse.MeAdote.repository.PetRepository;
 
@@ -15,7 +17,7 @@ public class PetService extends BaseService<Pet> {
 	}
 
 	@Override
-	public Pet update(Pet novo) {
+	public Pet update(Pet novo) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Pet antigo = this.findById(novo.getId());
 		
 		antigo.setData_nascimento(novo.getData_nascimento());

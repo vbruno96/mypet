@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Login;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.model.Usuario;
@@ -31,7 +33,7 @@ public class UsuarioService extends BaseService<Usuario>{
 	}
 
 	@Override
-	public Usuario update(Usuario novo) {
+	public Usuario update(Usuario novo) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Usuario antigo = this.findById(novo.getId());
 			
 		antigo.setBairro(novo.getBairro());
@@ -69,13 +71,13 @@ public class UsuarioService extends BaseService<Usuario>{
 		return this.repository.save(usuario);			
 	}
 	
-	public Usuario findByUsername(String username) {
-		Login login = this.loginRepository.findByEmail(username).orElseThrow( () -> new RuntimeException("Registro não encontrado.") );
+	public Usuario findByUsername(String username) throws ObjectNotFoundException {
+		Login login = this.loginRepository.findByEmail(username).orElseThrow( () -> new ObjectNotFoundException("e-mail") );
 		
 		return login.getUsuario();
 	}
 	
-	public Usuario getLoggedUser() {
+	public Usuario getLoggedUser() throws ObjectNotFoundException {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username;		
 		
@@ -89,7 +91,7 @@ public class UsuarioService extends BaseService<Usuario>{
 		return findByUsername(username);
 	}
 	
-	public Usuario updatePassword(Usuario usuario, String password) {
+	public Usuario updatePassword(Usuario usuario, String password) throws ObjectNotFoundException, DataIntegrityViolationException {
 		usuario = this.findById(usuario.getId());
 		
 		usuario.getLogin().setSenha(encoder.encode(password));

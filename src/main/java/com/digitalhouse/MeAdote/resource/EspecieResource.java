@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Especie;
 import com.digitalhouse.MeAdote.service.EspecieService;
 
@@ -43,7 +45,7 @@ public class EspecieResource {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Especie especie) {
+	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Especie especie) throws ObjectNotFoundException, DataIntegrityViolationException {
 		especie.setId(id);
 		
 		this.especieService.update(especie);
@@ -59,7 +61,7 @@ public class EspecieResource {
 	}
  	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
+	public ResponseEntity<Void> delete(@PathVariable Long id) throws ObjectNotFoundException, DataIntegrityViolationException {
 		this.especieService.deleteById(id);
 		
 		return ResponseEntity.noContent().build();

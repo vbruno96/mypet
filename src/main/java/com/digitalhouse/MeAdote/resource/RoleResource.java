@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.service.RoleService;
 
@@ -43,7 +45,7 @@ public class RoleResource {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Role role) {
+	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Role role) throws ObjectNotFoundException, DataIntegrityViolationException {
 		role.setId(id);
 		
 		this.roleService.update(role);
@@ -59,7 +61,7 @@ public class RoleResource {
 	}
  	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
+	public ResponseEntity<Void> delete(@PathVariable Long id) throws ObjectNotFoundException, DataIntegrityViolationException {
 		this.roleService.deleteById(id);
 		
 		return ResponseEntity.noContent().build();

@@ -25,7 +25,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 	protected void configure (HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/", "/csrf", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**",
-				"/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
+				"/configuration/**", "/swagger-ui.html", "/webjars/**").hasRole("admin")
 		.antMatchers(HttpMethod.POST, "/usuarios").permitAll()
 		
 		.antMatchers(HttpMethod.POST, "/especies").hasRole("admin")

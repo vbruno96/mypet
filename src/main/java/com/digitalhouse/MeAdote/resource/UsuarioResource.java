@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Adocao;
 import com.digitalhouse.MeAdote.model.Like;
 import com.digitalhouse.MeAdote.model.Match;
@@ -52,7 +54,7 @@ public class UsuarioResource {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> update(@RequestBody Usuario novo) {
+	public ResponseEntity<Void> update(@RequestBody Usuario novo) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Usuario antigo = usuarioService.getLoggedUser();
 		
 		novo.setId(antigo.getId());
@@ -63,14 +65,14 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Usuario> find() {
+	public ResponseEntity<Usuario> find() throws ObjectNotFoundException {
 		Usuario usuario = this.usuarioService.getLoggedUser();
 		
 		return ResponseEntity.ok(usuario);
 	}
 	
 	@PutMapping("/password")
-	public ResponseEntity<Void> updatePassword(@RequestBody String senha) {
+	public ResponseEntity<Void> updatePassword(@RequestBody String senha) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Usuario usuario = usuarioService.getLoggedUser();
 		
 		this.usuarioService.updatePassword(usuario, senha);
@@ -79,7 +81,7 @@ public class UsuarioResource {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Void> delete() {
+	public ResponseEntity<Void> delete() throws ObjectNotFoundException, DataIntegrityViolationException {
 		Usuario usuario = this.usuarioService.getLoggedUser();
 		
 		this.usuarioService.deleteById(usuario.getId());
@@ -88,7 +90,7 @@ public class UsuarioResource {
 	}
 	
 	@PostMapping("/likes")
-	public ResponseEntity<Void> addLike (@RequestBody Long idPet) {		
+	public ResponseEntity<Void> addLike (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
 		Like like = new Like();
@@ -103,12 +105,12 @@ public class UsuarioResource {
 	}
 	
 	@DeleteMapping("/likes")
-	public ResponseEntity<Void> deleteLike (@RequestBody Long idPet) {		
+	public ResponseEntity<Void> deleteLike (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
 		List<Like> likes = usuario.getLikes();
 		
-		Like likeRemover = likes.stream().filter(like -> like.getPet().getId() == idPet).findFirst().orElseThrow(() -> new RuntimeException("O registro não existe"));
+		Like likeRemover = likes.stream().filter(like -> like.getPet().getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
 		likes.remove(likeRemover);
 		
 		this.usuarioService.update(usuario);
@@ -117,7 +119,7 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/likes")
-	public ResponseEntity<List<Like>> getLikes () {		
+	public ResponseEntity<List<Like>> getLikes () throws ObjectNotFoundException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
 		List<Like> likes = usuario.getLikes();
@@ -126,7 +128,7 @@ public class UsuarioResource {
 	}
 	
 	@PostMapping("/matches")
-	public ResponseEntity<Void> addMatch (@RequestBody Long idPet) {		
+	public ResponseEntity<Void> addMatch (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
 		Match match = new Match();
@@ -141,12 +143,12 @@ public class UsuarioResource {
 	}
 	
 	@DeleteMapping("/matches")
-	public ResponseEntity<Void> deleteMatch (@RequestBody Long idPet) {		
+	public ResponseEntity<Void> deleteMatch (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
 		List<Match> matches = usuario.getMatches();
 		
-		Match matchRemover = matches.stream().filter(match -> match.getPet().getId() == idPet).findFirst().orElseThrow(() -> new RuntimeException("O registro não existe"));
+		Match matchRemover = matches.stream().filter(match -> match.getPet().getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
 		matches.remove(matchRemover);
 		
 		this.usuarioService.update(usuario);
@@ -155,7 +157,7 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/matches")
-	public ResponseEntity<List<Match>> getMatches () {		
+	public ResponseEntity<List<Match>> getMatches () throws ObjectNotFoundException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
 		List<Match> matches = usuario.getMatches();
@@ -164,7 +166,7 @@ public class UsuarioResource {
 	}
 	
 	@PostMapping("/adocoes")
-	public ResponseEntity<Void> addAdocao (@RequestBody Long idPet) {		
+	public ResponseEntity<Void> addAdocao (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
 		Adocao adocao = new Adocao();
@@ -179,12 +181,12 @@ public class UsuarioResource {
 	}
 	
 	@DeleteMapping("/adocoes")
-	public ResponseEntity<Void> deleteAdocao (@RequestBody Long idPet) {		
+	public ResponseEntity<Void> deleteAdocao (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
 		List<Adocao> adocoes = usuario.getAdocoes();
 		
-		Adocao adocaoRemover = adocoes.stream().filter(adocao -> adocao.getPet().getId() == idPet).findFirst().orElseThrow(() -> new RuntimeException("O registro não existe"));
+		Adocao adocaoRemover = adocoes.stream().filter(adocao -> adocao.getPet().getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
 		adocoes.remove(adocaoRemover);
 		
 		this.usuarioService.update(usuario);
@@ -193,7 +195,7 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/adocoes")
-	public ResponseEntity<List<Adocao>> getAdocoes () {		
+	public ResponseEntity<List<Adocao>> getAdocoes () throws ObjectNotFoundException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
 		List<Adocao> adocoes = usuario.getAdocoes();
@@ -202,7 +204,7 @@ public class UsuarioResource {
 	}
 	
 	@PostMapping("/{id}/roles")
-	public ResponseEntity<Void> addRole (@PathVariable Long id, @RequestBody Role role) {		
+	public ResponseEntity<Void> addRole (@PathVariable Long id, @RequestBody Role role) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.findById(id);
 		
 		usuario.getLogin().getRoles().add(role);
@@ -213,7 +215,7 @@ public class UsuarioResource {
 	}
 	
 	@DeleteMapping("/{id}/roles")
-	public ResponseEntity<Void> deleteRole (@PathVariable Long id, @RequestBody Role role) {		
+	public ResponseEntity<Void> deleteRole (@PathVariable Long id, @RequestBody Role role) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.findById(id);
 		
 		Set<Role> roles = usuario.getLogin().getRoles();
@@ -225,7 +227,7 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/{id}/roles")
-	public ResponseEntity<Set<Role>> getRoles (@PathVariable Long id) {		
+	public ResponseEntity<Set<Role>> getRoles (@PathVariable Long id) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.findById(id);	
 		
 		Set<Role> roles = usuario.getLogin().getRoles();

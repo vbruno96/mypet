@@ -3,6 +3,8 @@ package com.digitalhouse.MeAdote.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.repository.RoleRepository;
 
@@ -15,7 +17,7 @@ public class RoleService extends BaseService<Role> {
 	}
 
 	@Override
-	public Role update(Role novo) {
+	public Role update(Role novo) throws ObjectNotFoundException, DataIntegrityViolationException {
 		Role antigo = this.findById(novo.getId());
 
 		antigo.setName(novo.getName());
