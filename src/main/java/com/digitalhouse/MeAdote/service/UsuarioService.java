@@ -81,7 +81,10 @@ public class UsuarioService extends BaseService<Usuario>{
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username;		
 		
-		if (principal instanceof UserDetails) {
+		if (principal instanceof Login) {
+			username = ((Login) principal).getEmail();
+		}
+		else if (principal instanceof UserDetails) {
 			username = ((UserDetails) principal).getUsername();
 		}
 		else {

@@ -1,8 +1,9 @@
 package com.digitalhouse.MeAdote.model;
 
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,11 +20,13 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -53,6 +56,11 @@ public class Login implements BaseModel  {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "login_roles", joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	@JsonIgnore
-	private Set<Role> roles = new HashSet<>();
+	private Set<Role> roles;
+	
+	@JsonIgnore
+	public List<String> getSimpleRoles() {
+		return this.roles.stream().map(role -> role.getId() + "_" + role.getName()).collect(Collectors.toList());
+	}
 
 }

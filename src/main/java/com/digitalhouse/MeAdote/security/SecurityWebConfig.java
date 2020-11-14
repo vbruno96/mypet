@@ -15,10 +15,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 	
 	private UserDetailsServiceImpl usuarioService;
+	private JwtUtil jwtUtil;
 	
 	@Autowired
-	public SecurityWebConfig (UserDetailsServiceImpl usuarioService) {
+	public SecurityWebConfig (UserDetailsServiceImpl usuarioService, JwtUtil jwtUtil) {
 		this.usuarioService = usuarioService;
+		this.jwtUtil = jwtUtil;
 	}
 	
 	@Override
@@ -26,6 +28,9 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/", "/csrf", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**",
 				"/configuration/**", "/swagger-ui.html", "/webjars/**").hasRole("admin")
+		
+		.antMatchers(HttpMethod.POST, "/login").permitAll()
+		
 		.antMatchers(HttpMethod.POST, "/usuarios").permitAll()
 		
 		.antMatchers(HttpMethod.POST, "/especies").hasRole("admin")
@@ -44,8 +49,9 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 		.anyRequest().authenticated()
 
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		.and().httpBasic()
-		.and().cors().disable().csrf().disable();
+		.and().cors().disable().csrf().disable()
+		
+		.addFilter(new JwtAuthenticationFilter(authenticationManager(), jwtUtil));
 	}
 	
 	@Bean
@@ -63,4 +69,5 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
 }
