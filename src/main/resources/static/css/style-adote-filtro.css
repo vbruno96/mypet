@@ -1,0 +1,90 @@
+form{
+    width: 100%;
+}
+
+.tipo, .porte, .sexo, .pelagem, .personalidade, .idade{
+
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #a0a0a0;
+    margin-top: 3%;
+}
+
+
+
+label p{
+
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #a0a0a0bb;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+label img {
+
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #a0a0a0bb;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    font-weight: 800;
+    font-size: 20px;
+    overflow: hidden;
+}
+.selected  img{
+
+    background-color: green;
+    border: 1px solid greenyellow;
+    overflow: hidden;
+}
+
+.selected  p{
+
+    background-color: green;
+    border: 1px solid greenyellow;
+    overflow: hidden;
+    color: white;
+}
+
+
+
+
+
+#gato, #cachorro, #pequeno, #medio, #grande, #macho, #femea, 
+#curto, #longa, #brincalhao, #calmo, #filhote, #adulto{
+
+    display: none;
+}
+
+.title-especie, .title-porte, .title-sexo, 
+.title-pelagem, .title-personalidade, .title-idade{
+
+    height: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    color: #333;
+}
+
+.select-tipo, .select-porte, .select-sexo,
+.select-pelagem, .select-personalidade, .select-idade{
+
+    max-width: 60%;
+    display: flex;
+}
+
+
+

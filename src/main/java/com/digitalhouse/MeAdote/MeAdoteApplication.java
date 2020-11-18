@@ -1,4 +1,4 @@
-package com.digitalhouse.MeAdote;
+ package com.digitalhouse.MeAdote;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

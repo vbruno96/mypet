@@ -29,7 +29,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/", "/csrf", "/v2/api-docs", "/configuration/ui", "/swagger-resources/**",
 				"/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()//.hasRole("admin")
 		
-		.antMatchers("/**/**.html", "/**/**.js", "/**/**.css", "/assets/**", "/favicon.ico").permitAll()
+		.antMatchers("/**/**.html", "/**/**.js", "/**/**.css", "/assets/**", "/favicon.ico", "/petImages/**", "/userImages/**").permitAll()
 		
 		.antMatchers(HttpMethod.POST, "/login").permitAll()
 		

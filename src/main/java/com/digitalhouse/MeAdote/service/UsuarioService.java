@@ -69,6 +69,10 @@ public class UsuarioService extends BaseService<Usuario>{
 		
 		usuario.getLogin().setRoles(roles);
 		
+		if (usuario.getLink_imagem() == null) {
+			usuario.setLink_imagem("defaultImage.png");
+		}
+		
 		try {
 			Usuario criado = this.repository.save(usuario);	
 			return criado;

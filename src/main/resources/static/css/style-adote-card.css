@@ -20,6 +20,12 @@ html{
 .like{
     animation: like 0.7s ease;
 }
+
+.no-like{
+    animation: noLike 0.3s ease;
+}
+
+
 @keyframes saida {
     0%{
         transform: translateX(0);
@@ -46,4 +52,35 @@ html{
         transform: translateX(-200%);
     }
 
+}
+
+
+@keyframes noLike{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-15%);
+    }
+    50%{
+        transform: translateX(15%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#imagem-pet {
+    background-image: url("/petImages/6r6.jpg");
+    background-size: cover;
+    background-position: center;
 }

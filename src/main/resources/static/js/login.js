@@ -9,7 +9,7 @@ var loggedUser = null;
 
 function submitLogin(e) {
   if (e) e.preventDefault();
-  
+
   email = document.getElementById("inputLoginEmail").value;
   password = document.getElementById("inputLoginPassword").value;
 
@@ -28,12 +28,11 @@ function submitLogin(e) {
     if (this.readyState != 4) return;
 
     if (this.status == 200) {
-      var data = JSON.parse(this.responseText);     
-      localStorage.setItem("jwtKey", "Bearer " + data.jwt); 
+      var data = JSON.parse(this.responseText);
+      localStorage.setItem("jwtKey", "Bearer " + data.jwt);
       openCloseLogin()
       getLoggedUser();
-    }
-    else if (this.status == 404) {
+    } else if (this.status == 404) {
       document.getElementById("wrongUserPass").style.display = "block";
     }
   };
@@ -41,7 +40,7 @@ function submitLogin(e) {
 
 function submitRegister(e) {
   e.preventDefault();
-  
+
   name = document.getElementById("inputRegisterName").value;
   email = document.getElementById("inputRegisterEmail").value;
   password = document.getElementById("inputRegisterPassword").value;
@@ -57,8 +56,8 @@ function submitRegister(e) {
   if (password != passwordConfirm) {
     passNotMatch.style.display = "block";
     return;
-  }  
-  passNotMatch.style.display = "none";  
+  }
+  passNotMatch.style.display = "none";
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "/usuarios", true);
@@ -74,8 +73,7 @@ function submitRegister(e) {
 
     if (this.status == 201) {
       submitLogin();
-    }
-    else if (this.status == 406) {
+    } else if (this.status == 406) {
       document.getElementById("userAreadyExists").style.display = "block";
     }
   };
@@ -98,7 +96,7 @@ function getLoggedUser() {
     if (this.readyState != 4) return;
 
     if (this.status == 200) {
-      var data = JSON.parse(this.responseText);     
+      var data = JSON.parse(this.responseText);
       loggedUser = data;
       document.getElementById("entrarButton").style.display = "none";
       document.getElementById("perfilButton").style.display = "block";
@@ -111,7 +109,7 @@ function getLoggedUser() {
   };
 }
 
-function logoutUser(){
+function logoutUser() {
   localStorage.removeItem("jwtKey");
   document.getElementById("entrarButton").style.display = "block";
   document.getElementById("perfilButton").style.display = "none";

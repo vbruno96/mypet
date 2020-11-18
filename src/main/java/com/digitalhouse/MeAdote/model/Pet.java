@@ -18,11 +18,13 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -55,11 +57,26 @@ public class Pet implements BaseModel{
 	@Column(nullable = false)
 	private Date data_nascimento;
 	
+	//M: Macho
+	//F: Femea
 	@Column(length = 1, nullable = false)
 	private String sexo;
 	
-	@Column(length = 45, nullable = true)
+	//P: Pequeno
+	//M: Medio
+	//G: Grande
+	@Column(length = 1, nullable = true)
 	private String porte;
+	
+	//C: Pelo Curto
+	//L: Pelo Longo
+	@Column(length = 1, nullable = true, name="tipo_pelo")
+	private String tipoPelo;
+	
+	//B: Brincalhao
+	//C: Calmo
+	@Column(length = 1, nullable = true)
+	private String personalidade;
 	
 	@Column(nullable = true)
 	private Float peso;

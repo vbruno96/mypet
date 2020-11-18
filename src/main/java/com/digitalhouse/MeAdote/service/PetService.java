@@ -1,4 +1,7 @@
-package com.digitalhouse.MeAdote.service;
+ package com.digitalhouse.MeAdote.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Pet;
+import com.digitalhouse.MeAdote.model.PetFiltro;
 import com.digitalhouse.MeAdote.repository.PetRepository;
 
 @Service
@@ -30,6 +34,53 @@ public class PetService extends BaseService<Pet> {
 		antigo.setPetDesaparecido(novo.getPetDesaparecido());
 		
 		return this.repository.save(antigo);
+	}
+	
+	public List<Pet> getFromFilter(PetFiltro petFiltro) {
+		List<Pet> pets = this.repository.findAll();
+		
+		if (!petFiltro.isGato()) {
+			pets = pets.stream().filter(pet -> !pet.getEspecie().getNome().equals("Cat")).collect(Collectors.toList());
+		}		
+		if (!petFiltro.isCachorro()) {
+			pets = pets.stream().filter(pet -> !pet.getEspecie().getNome().equals("Cachorro")).collect(Collectors.toList());
+		}
+		
+		
+		if (!petFiltro.isPeloCurto()) {
+			pets = pets.stream().filter(pet -> !pet.getTipoPelo().equals("C")).collect(Collectors.toList());
+		}		
+		if (!petFiltro.isPeloLongo()) {
+			pets = pets.stream().filter(pet -> !pet.getTipoPelo().equals("L")).collect(Collectors.toList());
+		}
+		
+		
+		if (!petFiltro.isBrincalhao()) {
+			pets = pets.stream().filter(pet -> !pet.getPersonalidade().equals("B")).collect(Collectors.toList());
+		}
+		if (!petFiltro.isCalmo()) {
+			pets = pets.stream().filter(pet -> !pet.getPersonalidade().equals("C")).collect(Collectors.toList());
+		}
+		
+		if (!petFiltro.isMacho()) {
+			pets = pets.stream().filter(pet -> !pet.getSexo().equals("M")).collect(Collectors.toList());
+		}
+		if (!petFiltro.isFemea()) {
+			pets = pets.stream().filter(pet -> !pet.getSexo().equals("F")).collect(Collectors.toList());
+		}
+		
+		
+		if (!petFiltro.isPequeno()) {
+			pets = pets.stream().filter(pet -> !pet.getPorte().equals("P")).collect(Collectors.toList());
+		}
+		if (!petFiltro.isMedio()) {
+			pets = pets.stream().filter(pet -> !pet.getPorte().equals("M")).collect(Collectors.toList());
+		}
+		if (!petFiltro.isGrande()) {
+			pets = pets.stream().filter(pet -> !pet.getPorte().equals("G")).collect(Collectors.toList());
+		}		
+		
+		return pets;
 	}
 
 }

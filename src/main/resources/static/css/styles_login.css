@@ -108,6 +108,7 @@ form a {
   form a {
     margin-bottom: 3em;
   }
+
   body {
     background-size: 200vw 100vh;
   }
@@ -143,7 +144,7 @@ form a {
   transition: 1s;
 }
 
-.containerMobile > button {
+.containerMobile>button {
   border: none;
   outline: none;
   background-color: rgba(0, 0, 0, 0);
@@ -152,7 +153,7 @@ form a {
   right: 1em;
 }
 
-.containerMobile > button:hover {
+.containerMobile>button:hover {
   color: #ffffff;
   transition: 1s;
 }
