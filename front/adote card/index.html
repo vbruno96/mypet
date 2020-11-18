@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/stylecard.css">
+  <link rel="stylesheet" href="/css/animacaoCard.css">
+  <link rel="stylesheet" href="/css/filtro.css">
+  <title>MeAdote</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+          <img src="/assets/logo.png" alt="logo site" width="70px">
+          <a href="#">MeAdote</a>
+      </div>
+
+      <div class="nav-links">
+          <a href="#">Como funciona</a>
+          <a href="#">Adote</a>
+          <a href="#">Doe</a>
+          <a href="#">Sobre</a>
+          <a href="#">Contato</a>
+          <a href="#">Entrar</a>
+      </div>
+  </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="dashboard">
+        <div class="nav-user">
+          <div class="perfil-user">
+            <img src="/assets/imgusuario.jpg" alt="imagem de perfil" class="perfil-image">
+            <a href="#">Amanda Silva</a>
+          </div>
+          <div class="menu">
+            <i class="fas fa-ellipsis-h fa-2x"></i>
+          </div>
+        </div>
+
+        <div class="controles-dash">
+          <div class="filtro active">
+            <p>Filtrar</p>
+          </div>
+        </div>
+        <div class="container-filtro">
+
+              <form action="" method="post">
+
+                <div class="tipo">
+                  <div class="title-especie">
+                    <p>Especie</p>
+                  </div>
+                  
+                  <div class="select-tipo">
+
+                    <input type="checkbox" name="gato" id="gato">
+                      <label for="gato" class="gato">
+                        <img class="gato-img" src="./assets/gato-icon.svg" title="Gato" alt="cat-icon">
+                      </label>
+
+                    <input type="checkbox" name="cachorro" id="cachorro">
+                      <label class="cachorro" for="cachorro">
+                        <img src="./assets/cachorro-icon.svg" title="Cachorro" alt="dog-icon">
+                      </label>
+
+                  </div>
+                </div>
+
+
+                <div class="pelagem">
+                  <div class="title-pelagem">
+                    <p>Pelagem</p>
+                  </div>
+                  <div class="select-pelagem">
+
+                    <input type="checkbox" name='curto' id="curto">
+                      <label for="curto" class="curto">
+                        <img src="/assets/pelo-curto.png" title="Curta" alt="">
+                      </label>
+  
+                      <input type="checkbox" name="longa" id="longa">
+                      <label for="longa" class="longa">
+                        <img src="/assets/pelo-longo.png" title="Longa" alt="">
+                      </label>
+  
+                  </div>
+                </div>
+
+                <div class="personalidade">
+                  <div class="title-personalidade">
+                    <p>Personalidade</p>
+                  </div>
+                  <div class="select-personalidade">
+
+                    <input type="checkbox" name='calmo' id="calmo">
+                      <label for="calmo" class="calmo">
+                        <img src="/assets/personalidade-brincalhao.png" title="Brincalhão" alt="">
+                      </label>
+  
+                      <input type="checkbox" name="brincalhao" id="brincalhao">
+                      <label for="brincalhao" class="brincalhao">
+                        <img src="/assets/personalidade-calmo.png" title="Calmo" alt="">
+                      </label>
+  
+                  </div>
+                </div> 
+
+                <div class="sexo">
+                  <div class="title-sexo">
+                    <p>Sexo</p>
+                  </div>
+                  <div class="select-sexo">
+
+                    <input type="checkbox" name="macho" id="macho">
+                      <label title="Macho" for="macho" class="macho">
+                        <p>M</p>
+                      </label>
+  
+                      <input type="checkbox" name="femia" id="femia">
+                      <label title="Femia" for="femia" class="femia">
+                        <p>F</p>
+                      </label>
+  
+                  </div>
+                </div>
+
+                <div class="porte">
+                  <div class="title-porte">
+                    <p>Porte</p>
+                  </div>
+
+                  <div class="select-porte">
+
+                    <input type="checkbox" name="pequeno" id="pequeno">
+                      <label  title="pequeno" for="pequeno" class="pequeno">
+                        <p>P</p>
+                      </label>
+
+                      <input  type="checkbox" name="medio" id="medio">
+                      <label title="Médio" for="medio" class="medio">
+                        <p>M</p>
+                      </label>
+
+                      <input type="checkbox" name="grande" id="grande">
+                      <label title="Grande" for="grande" class="grande">
+                        <p>G</p>
+                      </label>
+                  </div>
+
+                </div>
+
+                
+              </form>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card ">
+          <div class="imagem-pet">
+
+          </div>
+          <div class="controles-escolha">
+            <div class="btn-like">
+              <i class="fas fa-check-circle fa-4x"></i>
+            </div>
+            <div class="btn-dislike">
+              <i class="fas fa-times-circle fa-4x"></i>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+  
+  <script src="/js/adote.js"></script>
+  <script src="/js/filtro.js"></script>
+  <script src="https://kit.fontawesome.com/015a1db8b7.js" crossorigin="anonymous"></script>
+</body>
+</html>
