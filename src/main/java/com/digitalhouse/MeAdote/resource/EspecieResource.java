@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
+import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.model.Especie;
 import com.digitalhouse.MeAdote.service.EspecieService;
 
@@ -32,7 +33,7 @@ public class EspecieResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> create(@RequestBody Especie especie) {
+	public ResponseEntity<Void> create(@RequestBody Especie especie) throws ObjectAlreadyExistsException {
 		especie = this.especieService.create(especie);
 
 		URI uri = ServletUriComponentsBuilder

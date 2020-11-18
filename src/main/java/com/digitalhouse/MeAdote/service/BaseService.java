@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
+import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.model.BaseModel;
 
 @Service
@@ -23,7 +24,7 @@ public abstract class BaseService<Entity>{
 		this.repository = repository;
 	}
 	
-	public Entity create(Entity entity) {
+	public Entity create(Entity entity) throws ObjectAlreadyExistsException {
 		((BaseModel) entity).setId(null);
 		
 		return repository.save(entity);

@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Adocao;
 import com.digitalhouse.MeAdote.model.Like;
+import com.digitalhouse.MeAdote.model.Login;
 import com.digitalhouse.MeAdote.model.Match;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.model.Usuario;
+import com.digitalhouse.MeAdote.model.UsuarioCreate;
 import com.digitalhouse.MeAdote.service.PetService;
 import com.digitalhouse.MeAdote.service.UsuarioService;
 
@@ -40,8 +43,10 @@ public class UsuarioResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> create(@RequestBody String senha, @RequestBody Usuario usuario) {
-		usuario.getLogin().setSenha(senha);
+	public ResponseEntity<Void> create(@RequestBody UsuarioCreate usuarioCreate) throws ObjectAlreadyExistsException {
+		Login login = Login.builder().email(usuarioCreate.getEmail()).senha(usuarioCreate.getSenha()).build();
+		Usuario usuario = Usuario.builder().nome(usuarioCreate.getNome()).login(login).build();
+
 		usuario = this.usuarioService.create(usuario);
 
 		URI uri = ServletUriComponentsBuilder

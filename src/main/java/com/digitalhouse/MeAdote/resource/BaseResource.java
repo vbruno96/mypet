@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.digitalhouse.MeAdote.configuration.SwaggerPageable;
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
+import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.model.BaseModel;
 import com.digitalhouse.MeAdote.service.BaseService;
 
@@ -30,7 +31,7 @@ public class BaseResource<Entity> {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> create(@RequestBody Entity entity) {
+	public ResponseEntity<Void> create(@RequestBody Entity entity) throws ObjectAlreadyExistsException {
 		entity = this.service.create(entity);
 
 		URI uri = ServletUriComponentsBuilder

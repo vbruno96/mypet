@@ -22,6 +22,36 @@ likes.addEventListener('click', function(){
     likes.classList.add('active')
 })
 
+function getLoggedUser() {
+    const jwtKey = localStorage.getItem("jwtKey");
+  
+    if (!jwtKey) {
+        window.location.replace("/index.html");
+    }
+  
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/usuarios", true);
+    xhr.setRequestHeader('Authorization', jwtKey);
+    xhr.send();
+  
+    xhr.onreadystatechange = function () {
+      if (this.readyState != 4) return;
+  
+      if (this.status == 200) {
+        var data = JSON.parse(this.responseText);     
+        loggedUser = data;
+        updateUserInfo();
+      }
+      if (this.status == 403) {
+        window.location.replace("/index.html");
+      }  
+    };
+}
+
+function updateUserInfo() {
+    document.getElementById("nomeUser").innerHTML = loggedUser.nome;
+}
+
 //Insere um pet na card
 function addPetCard (pet) {
     let link_imagem = pet.imagensPet[0].link_imagem;
@@ -51,18 +81,36 @@ function getNewPet() {
 }
 
 //Busca pets no banco
-function fetchPets() {
-    return fetch("http://localhost:8080/pets?page="+(currentPagePet++)+"&size=10").then(function (response) {
-        return response.json();
-    }).then(function (responseJson) {
+function fetchPets(getPet = false) {
+    const jwtKey = localStorage.getItem("jwtKey");
+  
+    if (!jwtKey) {
+        window.location.replace("/index.html");
+    }    
 
-        for (pet in responseJson.content) {
-            savedPets.push(responseJson.content[pet]);
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/pets?page="+(currentPagePet++)+"&size=10", true);
+
+    xhr.setRequestHeader('Authorization', jwtKey);
+    xhr.send();
+  
+    xhr.onreadystatechange = function () {
+      if (this.readyState != 4) return;
+  
+      if (this.status == 200) {
+        var data = JSON.parse(this.responseText);     
+        for (pet in data.content) {
+            savedPets.push(data.content[pet]);
         }
-
-    }).catch(function (error) {
-        console.log("Error: " + error);
-    });   
+        if (getPet) {
+            getNewPet();
+        }
+      }
+      if (this.status == 403) {
+        window.location.replace("/index.html");
+      }
+  
+    };
 }
 
 function cardSelectMovement() {
@@ -87,4 +135,5 @@ function dislikePet() {
 let currentPagePet = 0;
 let savedPets = [];
 let displayedPet = [];
-fetchPets().then( ()=> {getNewPet();});
+
+window.onload = () => {getLoggedUser(); fetchPets(true)};

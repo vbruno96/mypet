@@ -32,4 +32,12 @@ public class GlobalControllerExceptionHandler {
         
         return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
     }
+	
+	@ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+	@ExceptionHandler(ObjectAlreadyExistsException.class)
+	public ResponseEntity<Object> handleObjectAlreadyExists() {
+		ApiError apiError = new ApiError(HttpStatus.NOT_ACCEPTABLE, "Object already exists", "O objeto já existe");
+        
+        return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
+	}
 }

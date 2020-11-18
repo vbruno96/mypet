@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
+import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.service.RoleService;
@@ -32,7 +33,7 @@ public class RoleResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> create(@RequestBody Role role) {
+	public ResponseEntity<Void> create(@RequestBody Role role) throws ObjectAlreadyExistsException {
 		role = this.roleService.create(role);
 		
 		URI uri = ServletUriComponentsBuilder

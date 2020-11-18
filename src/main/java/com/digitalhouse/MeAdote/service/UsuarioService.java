@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
+import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.model.Login;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.model.Usuario;
@@ -52,7 +53,7 @@ public class UsuarioService extends BaseService<Usuario>{
 	}
 	
 	@Override
-	public Usuario create(Usuario usuario) {
+	public Usuario create(Usuario usuario) throws ObjectAlreadyExistsException {
 		usuario.setId(null);
 		usuario.getLogin().setId(null);
 		
@@ -68,7 +69,13 @@ public class UsuarioService extends BaseService<Usuario>{
 		
 		usuario.getLogin().setRoles(roles);
 		
-		return this.repository.save(usuario);			
+		try {
+			Usuario criado = this.repository.save(usuario);	
+			return criado;
+		}
+		catch (Exception e) {
+			throw new ObjectAlreadyExistsException();
+		}
 	}
 	
 	public Usuario findByUsername(String username) throws ObjectNotFoundException {
