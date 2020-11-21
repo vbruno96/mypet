@@ -48,8 +48,8 @@ public class Pet implements BaseModel{
 	@JoinColumn(name="id_especie")
 	private Especie especie;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ImagemPet> imagensPet;
+	@Column(length = 45, nullable = true)
+	private String link_imagem;
 	
 	@Column(length = 45, nullable = false)
 	private String nome;
@@ -86,6 +86,7 @@ public class Pet implements BaseModel{
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_pet_desaparecido", referencedColumnName = "id")
+	@JsonIgnore
 	private PetDesaparecido petDesaparecido;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

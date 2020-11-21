@@ -1,5 +1,8 @@
 package com.digitalhouse.MeAdote.resource;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
@@ -44,6 +49,7 @@ public class PetResource {
 		Usuario loggedUser = this.usuarioService.getLoggedUser();
 		
 		pet.setUsuario(loggedUser);
+		pet.setLink_imagem(null);
 		
 		pet = this.petService.create(pet);
 
@@ -92,6 +98,31 @@ public class PetResource {
 		this.petService.deleteById(id);
 		
 		return ResponseEntity.noContent().build();
+	}
+	
+	@PostMapping("/{id}/imagem")
+	public ResponseEntity<Void> addImagemPet (@PathVariable Long id, @RequestParam MultipartFile petImage) throws ObjectNotFoundException, DataIntegrityViolationException, IllegalStateException, IOException {		
+		Usuario loggedUser = this.usuarioService.getLoggedUser();
+		Pet pet = this.petService.findById(id);
+		
+		if (pet.getUsuario().getId() != loggedUser.getId()) {
+			throw new ObjectNotFoundException();
+		}
+		
+		File currentImage = new File("src/main/resources/static/petImages/" + pet.getLink_imagem());
+		currentImage.delete();
+		
+		String imageExtension = petImage.getOriginalFilename().substring(petImage.getOriginalFilename().lastIndexOf("."));		
+		String fileName = "petImage_" + loggedUser.getId() + imageExtension;
+		
+		FileOutputStream stream = new FileOutputStream("src/main/resources/static/petImages/" + fileName, false);
+		stream.write(petImage.getBytes());
+		stream.close();
+		
+		pet.setLink_imagem(fileName);		
+		petService.update(pet);
+		
+		return ResponseEntity.noContent().build();		
 	}
 	
 	@PatchMapping

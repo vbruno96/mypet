@@ -1,5 +1,8 @@
 package com.digitalhouse.MeAdote.resource;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
@@ -238,6 +243,26 @@ public class UsuarioResource {
 		Set<Role> roles = usuario.getLogin().getRoles();
 		
 		return ResponseEntity.ok(roles);	
+	}
+	
+	@PostMapping("/imagemPerfil")
+	public ResponseEntity<Void> addImagemPerfil (@RequestParam MultipartFile userImage) throws ObjectNotFoundException, DataIntegrityViolationException, IllegalStateException, IOException {		
+		Usuario usuario= usuarioService.getLoggedUser();	
+		
+		File currentImage = new File("src/main/resources/static/userImages/" + usuario.getLink_imagem());
+		currentImage.delete();
+		
+		String imageExtension = userImage.getOriginalFilename().substring(userImage.getOriginalFilename().lastIndexOf("."));		
+		String fileName = "userImage_" + usuario.getId() + imageExtension;
+		
+		FileOutputStream stream = new FileOutputStream("src/main/resources/static/userImages/" + fileName, false);
+		stream.write(userImage.getBytes());
+		stream.close();
+		
+		usuario.setLink_imagem(fileName);		
+		usuarioService.update(usuario);
+		
+		return ResponseEntity.noContent().build();		
 	}
 
 }

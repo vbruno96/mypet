@@ -165,7 +165,7 @@ function updateUserInfo() {
 
 //Insere um pet na card
 function addPetCard(pet) {
-    let link_imagem = pet.imagensPet[0].link_imagem;
+    let link_imagem = pet.link_imagem;
     document.querySelector("#imagem-pet").style.backgroundImage = "url('/petImages/" + link_imagem+"')";
 }
 

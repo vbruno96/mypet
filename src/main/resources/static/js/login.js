@@ -32,6 +32,14 @@ function submitLogin(e) {
       localStorage.setItem("jwtKey", "Bearer " + data.jwt);
       openCloseLogin()
       getLoggedUser();
+
+      document.getElementById("inputLoginEmail").value = "";
+      document.getElementById("inputLoginPassword").value = "";
+
+      document.getElementById("inputRegisterName").value = "";
+      document.getElementById("inputRegisterEmail").value = "";
+      document.getElementById("inputRegisterPassword").value = "";
+      document.getElementById("inputRegisterPasswordConfirm").value = "";
     } else if (this.status == 404) {
       document.getElementById("wrongUserPass").style.display = "block";
     }
@@ -114,6 +122,14 @@ function logoutUser() {
   document.getElementById("entrarButton").style.display = "block";
   document.getElementById("perfilButton").style.display = "none";
   document.getElementById("logoutButton").style.display = "none";
+
+  document.getElementById("inputLoginEmail").value = "";
+  document.getElementById("inputLoginPassword").value = "";
+
+  document.getElementById("inputRegisterName").value = "";
+  document.getElementById("inputRegisterEmail").value = "";
+  document.getElementById("inputRegisterPassword").value = "";
+  document.getElementById("inputRegisterPasswordConfirm").value = "";
 }
 
 function openCloseLogin() {
