@@ -66,9 +66,6 @@ public class Usuario implements BaseModel {
 	private String logradouro;
 	
 	@Column(length = 45, nullable = true)
-	private String num_residencia;
-	
-	@Column(length = 45, nullable = true)
 	private String link_imagem;
 	
 	@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -46,7 +46,6 @@ public class UsuarioService extends BaseService<Usuario>{
 		antigo.setLink_imagem(novo.getLink_imagem());
 		antigo.setLogradouro(novo.getLogradouro());
 		antigo.setNome(novo.getNome());
-		antigo.setNum_residencia(novo.getNum_residencia());
 		antigo.setTelefone(novo.getTelefone());
 		
 		return this.repository.save(antigo);

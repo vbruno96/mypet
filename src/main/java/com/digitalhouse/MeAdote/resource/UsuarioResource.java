@@ -51,6 +51,8 @@ public class UsuarioResource {
 	public ResponseEntity<Void> create(@RequestBody UsuarioCreate usuarioCreate) throws ObjectAlreadyExistsException {
 		Login login = Login.builder().email(usuarioCreate.getEmail()).senha(usuarioCreate.getSenha()).build();
 		Usuario usuario = Usuario.builder().nome(usuarioCreate.getNome()).login(login).build();
+		
+		usuario.setLink_imagem("defaultImage.png");
 
 		usuario = this.usuarioService.create(usuario);
 
