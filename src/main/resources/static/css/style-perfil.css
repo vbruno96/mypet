@@ -1,0 +1,266 @@
+nav{
+    background-color: #1e1b26;
+}
+
+.container{
+    display: flex;
+}
+
+.dashboard{
+    width: 25%;
+    height: 100%;
+    padding-left: 2rem;
+    padding-top: 8rem;
+    border-right: 9px solid #F30060;
+    position: relative;
+    background-color: #191620f6;
+    color: #fafafa;
+
+}
+
+.container-perfil{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Dashboard */
+
+.dashboard ul{
+    margin-top: 2rem;
+    list-style: none;
+}
+
+.dashboard ul li {
+    padding: 1rem 0 ;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard ul li:hover {
+   color: #3cc7fa;
+}
+
+.dashboard ul li img {
+    width: 50px;
+ 
+    position: relative;
+    overflow: hidden;
+}
+
+.icon{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;    
+}
+
+.select-filtro{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #074257a1;
+    top: 0%;
+    left: 0;
+    border-radius: 49%;
+    transition: 1s;
+}
+
+.select-filtro:hover{
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.logout{
+    position: absolute;
+    bottom: 10px;
+}
+
+.logout button{
+    width: 90px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #f30049;
+    color: #fafafa;
+    font-size: 20px;
+    font-weight: 100;
+    border-radius: 20px;
+    cursor: pointer;
+}   
+
+.logout button:hover{
+    background-color: #f30035;
+}
+
+
+
+/* Perfil Usuario */
+
+.perfil-desc{
+    width: 90%;
+    height: 200px;
+    position: absolute;
+    top: 7rem;
+    left: 3rem;
+    display: flex;
+}
+
+.perfil-logo{
+    width: 20%;
+}
+
+.perfil-logo p{
+    font-size: 20px;
+    font-weight: 400;
+    color: #1e1b26ec;
+}
+
+.container-perfil .perfil-img{
+    width: 150px;
+    height: 150px;
+    background-color: tomato;
+    border-radius: 50%;
+    margin-right: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.perfil-img input{
+    display: none;
+}
+
+.perfil-img img{
+   position: absolute;
+   top: 0%;
+   left: 0;
+   width: 150px;
+   height: 150px;
+}
+
+.perfil-img label img{
+    width: 50px;
+    height: 50px;
+    left: 35%;
+    top: 35%;
+    
+ }
+
+.perfil-img label{
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    background-color:#1e1b26d0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 1s;
+}
+
+
+.perfil-img label:hover{
+    opacity: 1;
+    transition: 1s;
+}
+
+.ln1{
+    width: 100%;
+    height: 150px;
+    display: flex;
+}
+
+.col1{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.col1 textarea{
+    border-radius: 5px;
+    outline: none;
+    padding: 0.5rem  1rem;
+    font-size: 20px;
+    font-weight: 300;
+    border: 1px solid #1e1b2641;
+    background-color: #1e1b2603;
+}
+
+/* Formulário */ 
+.container-form{
+    width: 90%;
+    height: 60%;
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+form{
+    width: 100%;
+}
+
+.ln{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    margin-bottom: 10px;
+
+
+}
+.col{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0  5px ;
+
+}
+
+.col label{
+    font-weight: 200;
+}
+
+.col input{
+    height: 60px;
+    font-size: 20px;
+    padding: 0 1rem;
+    outline: none;
+    border: 1px solid #1e1b2669;
+    border-radius: 5px;
+    color: #1e1b26fa;
+    font-weight: 300;
+}
+
+.col button{
+    width: 200px;
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #05c40f;
+    font-size: 20px;
+    font-weight: 100;
+    border-radius: 5px;
+}
+
+.col button:hover{
+    background-color: #05c40f;
+    color: #fafafa;
+    font-weight: 300;
+    cursor: pointer;
+}

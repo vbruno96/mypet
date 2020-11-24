@@ -1,0 +1,47 @@
+.active{
+    animation: scroll 1s ease-out;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+
+.active2{
+    position: absolute;
+    right: 0;
+    animation: scroll-left 1s ease ;
+}
+
+.active3{
+    position: absolute;
+    top: 40%;
+    animation: scroll-top 1s ease-out;
+}
+
+
+@keyframes scroll-left{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(-150%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes scroll-top{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+

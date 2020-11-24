@@ -1,3 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900");
+
+@import url("https://fonts.googleapis.com/css2?family=Clicker+Script");
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    transition: 0.4s;
+    background-color: #1e1b2611;
+    z-index: 5;  
+}
+  
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 45px;
+    margin-right: 5px;
+    margin-top: -2%;
+}
+  
+.logo p{
+    color: #fafafa;
+    font-size: 30px;
+}
+
+.logo span{
+    color: #ff3d8b;
+    font-size: 30px;
+    font-weight: 500;
+}
+  
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    color: #f0f0f0;
+}
+  
+nav ul li {
+    padding: 0.5rem;
+    transition: 0.5s;
+    cursor: pointer;
+}
+  
+nav ul li a:hover {
+    overflow: visible;
+    cursor: pointer;
+    color: #F30060;
+}
+  
+nav ul li a {
+    text-decoration: none;
+    color: rgb(194, 194, 194);
+}
+
+.entrar-btn{
+    background-color: #F30060;
+    width: 100px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: #fafafa;
+    margin-left: 1rem;
+}
+
+
+.entrar-btn:hover{
+      color: #fafafa;
+      background-color: #f30061ce;
+}
+  
+
+/* Main container */ 
+
+.container{
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;  
+}
+
 input {
   outline: none;
   border: none;
@@ -50,4 +157,8 @@ input {
   border-image-slice: 1;
   border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
   color: #fff;
+}
+
+.containerLoginRegister {
+  z-index: 10;
 }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   
+    <link rel="stylesheet" href="./css/style-global.css">
+    <link rel="stylesheet" href="./css/style-perfil.css">
+    <title>MeAdote</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="">
+                <p><span>Me</span>Adote</p>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="adote.html">Como Funciona</a></li>
+                    <li><a href="adote.html">Adote</a></li>
+                    <li><a href="google.com">Doe</a></li>
+                    <li><a href="adote.html">Sobre</a></li>
+                    <li><a href="adote.html">Contato</a></li>
+                  </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="dashboard">
+                <h1>Meu perfil</h1>
+
+                <ul>
+                    <li> 
+                        <div class="icon">
+                            <img src="./assets/icons/user.svg" alt="">
+                            <div class="select-filtro"></div>
+                        </div>
+                         Informações Pessoais
+                    </li>
+
+                    <li> 
+                        <div class="icon">
+                            <img src="./assets/icons/menu.svg" alt=""> 
+                            <div class="select-filtro"></div>
+                        </div>
+                        Meus Pets
+                    </li>
+
+                    <li> 
+                        <div class="icon">
+                            <img src="./assets/icons/check.svg" alt="">
+                            <div class="select-filtro"></div>
+                        </div>
+                         Meus Likes
+                        </li>
+                        
+                    <li> 
+                        <div class="icon">
+                            <img src="./assets/icons/settings.svg" alt="">
+                            <div class="select-filtro"></div>
+                        </div> 
+                        Configurar Filtro
+                    </li>
+                </ul>
+
+                <div class="logout">
+                    <button onclick="logoutUser()">Sair</button>
+                </div>
+            </div>
+            <div class="container-perfil">
+
+                <div class="perfil-desc">
+
+                    <div class="perfil-logo">
+                        <div class="perfil-img">
+                            <img id="imagem" class="img-perfil" src="" alt="">
+                            <label for="fotoPerfil"><img src="./assets/icons/user.svg"  alt="upload"></label>
+                            <input type="file" name="foto" id="fotoPerfil">
+                        </div>
+    
+                        <p id="nome-display">Nome</p>
+                    </div>
+                    <div class="ln1">
+                        <div class="col1">
+                            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-form">
+                    <form action="" id="formUserData">
+
+                        <div class="ln">
+                            <div class="col">
+                                <label class="nome" for="nome">Nome</label>
+                                <input type="text" name="nome" id="nome">
+                            </div>
+                            <div class="col">
+                                <label class="email" for="email">Email</label>
+                                <input type="email" name="email" id="email">
+                            </div>
+                        </div>
+
+                        <div class="ln">
+                            <div class="col">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" name="telefone" id="telefone">
+                            </div>
+                            <div class="col">
+                                <label for="celular">Celular</label>
+                                <input type="text" name="celular" id="celular">
+                            </div>                            
+                        </div>
+
+                        <div class="ln">
+                            <div class="col">
+                                <label for="cep">Cep</label>
+                                <input type="text" name="cep" id="cep">
+                            </div>
+                            <div class="col">
+                                <label for="logradouro">Logradouro</label>
+                                <input type="text" name="logradouro" id="logradouro">
+                            </div>
+                        </div>
+
+                        <div class="ln">
+                            <div class="col">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" name="bairro" id="bairro">
+                            </div>
+                            <div class="col">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" name="cidade" id="cidade">
+                            </div>
+                        </div>
+                        <div class="ln">
+                            <div class="col">
+                                <button>Salvar alterações</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/imgLoad.js"></script>
+    <script src="./js/perfil.js"></script>
+</body>
+</html>
