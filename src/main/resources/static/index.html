@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="./css/style-login.css" />
     <title>MeAdote</title>
 </head>
-<body>
+<body >
     <header>
-        <div class="container">
+        <div class="container blur">
             <div class="filtro">
                 <div class="info-header">
                     <h3>Pense em tudo</h3>
@@ -61,7 +61,7 @@
 
 
         <nav class="navbar">
-            <div class="logo">
+            <div href="./index.html" class="logo">
                 <img src="./assets/logo.png" alt="">
                 <p><span>Me</span>Adote</p>
             </div>
@@ -72,69 +72,14 @@
                     <li><a href="google.com">Doe</a></li>
                     <li><a href="./adote.html">Sobre</a></li>
                     <li><a href="./adote.html">Contato</a></li>
-                    <li id="entrarButton" onclick="openCloseLogin()">Entrar</li>
+                    <li class="entrar-btn" id="entrarButton" onclick="openCloseLogin()">Entrar</li>
                     <li id="perfilButton" style="display: none"><a href="./userPerfil.html">Meu Perfil</a></li>
                     <li id="logoutButton" style="display: none" onclick="logoutUser()">Sair</li>
                   </ul>
             </div>
         </nav>
 
-        <div id="containerLoginRegister" class="containerLoginRegister formHide">
-          <div id="close" class="close" onclick="openCloseLogin()">X</div>
-          <div class="contentLoginRegister">
-            <div class="info">
-              <p>JÁ TEM CADASTRO?</p>
-              <button class="btn btn-secondary" onclick="moveFormsContainer()">
-                Realizar login
-              </button>
-            </div>
-    
-            <div class="info">
-              <p>AINDA NÃO TEM CADASTRO?</p>
-              <button class="btn btn-secondary" onclick="moveFormsContainer()">
-                Realizar cadastro
-              </button>
-            </div>e
-    
-            <div id="formsContainer" class="formsContainer formsContainerMoveLeft">
-              <form id="formLogin" class="formLogin">
-                <h2>Login</h2>
-                <div class="form-group">
-                  <input type="email" class="form-control" id="inputLoginEmail" placeholder="Email" required />
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="inputLoginPassword" placeholder="Senha" required />
-                </div>
-                <button type="submit" class="btn btn-secondary">Login</button>
-                <p id="wrongUserPass" style="color:red; text-align: center; display: none;">Usuário ou senha inválidos</p>
-                <a href="#" class="text-center">Esqueci minha senha</a>
-              </form>
-    
-              <form id="formRegister" class="formRegister formHide">
-                <h2>Registre-se</h2>
-    
-                <div class="form-group">
-                  <input type="text" class="form-control" id="inputRegisterName" placeholder="Nome" required />
-                </div>
-    
-                <div class="form-group">
-                  <input type="email" class="form-control" id="inputRegisterEmail" placeholder="Email" required />
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="inputRegisterPassword" placeholder="Senha" required />
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" id="inputRegisterPasswordConfirm"
-                    placeholder="Confirmar senha" required />
-                </div>
-                <button type="submit" class="btn btn-secondary">Cadastrar</button>
-                <p id="passNotMatch" style="color:red; text-align: center; display: none;">As senhas não coincidem</p>
-                <p id="userAreadyExists" style="color:red; text-align: center; display: none;">O usuário já existe</p>
-              </form>
-            </div>
-          </div>
-        </div>
-      
+        
     </header>
     <main>
         <section class="section section-a"></section>
@@ -208,6 +153,63 @@
             </div>
           </section>
     </main>
+
+    <div id="containerLoginRegister" class="containerLoginRegister formHide">
+      <div id="close" class="close" onclick="openCloseLogin()">X</div>
+      <div class="contentLoginRegister">
+        <div class="info">
+          <p>JÁ TEM CADASTRO?</p>
+          <button class="btn btn-secondary" onclick="moveFormsContainer()">
+            Realizar login
+          </button>
+        </div>
+
+        <div class="info">
+          <p>AINDA NÃO TEM CADASTRO?</p>
+          <button class="btn btn-secondary" onclick="moveFormsContainer()">
+            Realizar cadastro
+          </button>
+        </div>e
+
+        <div id="formsContainer" class="formsContainer formsContainerMoveLeft">
+          <form id="formLogin" class="formLogin">
+            <h2>Login</h2>
+            <div class="form-group">
+              <input class="input" type="email" class="form-control" id="inputLoginEmail" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <input class="input" type="password" class="form-control" id="inputLoginPassword" placeholder="Senha" required />
+            </div>
+            <button type="submit" class="btn btn-secondary">Login</button>
+            <p id="wrongUserPass" style="color:red; text-align: center; display: none;">Usuário ou senha inválidos</p>
+            <a href="#" class="text-center">Esqueci minha senha</a>
+          </form>
+
+          <form id="formRegister" class="formRegister formHide">
+            <h2>Registre-se</h2>
+
+            <div class="form-group">
+              <input class="input" type="text" class="form-control" id="inputRegisterName" placeholder="Nome" required />
+            </div>
+
+            <div class="form-group">
+              <input class="input" type="email" class="form-control" id="inputRegisterEmail" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <input class="input" type="password" class="form-control" id="inputRegisterPassword" placeholder="Senha" required />
+            </div>
+            <div class="form-group">
+              <input class="input" type="password" class="form-control" id="inputRegisterPasswordConfirm"
+                placeholder="Confirmar senha" required />
+            </div>
+            <button type="submit" class="btn btn-secondary">Cadastrar</button>
+            <p id="passNotMatch" style="color:red; text-align: center; display: none;">As senhas não coincidem</p>
+            <p id="userAreadyExists" style="color:red; text-align: center; display: none;">O usuário já existe</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  
     <script src="./js/script-home.js"></script>
     <script src="./js/login.js"></script>
     <script src="https://kit.fontawesome.com/015a1db8b7.js" crossorigin="anonymous"></script>

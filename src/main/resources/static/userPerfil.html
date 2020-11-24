@@ -33,41 +33,39 @@
                 <h1>Meu perfil</h1>
 
                 <ul>
-                    <li> 
-                        <div class="icon">
-                            <img src="./assets/icons/user.svg" alt="">
-                            <div class="select-filtro"></div>
-                        </div>
-                         Informações Pessoais
+                    <li id="dashLink"> 
+                        <a href="./userPerfil.html"  style="color: #3cc7fa;">
+                            <div class="icon">
+                                <img src="./assets/icons/user.svg" alt="">
+                                <div class="select-filtro hoverIconS"></div>
+                            </div>
+                            Informações Pessoais
+                        </a>
                     </li>
 
-                    <li> 
-                        <div class="icon">
-                            <img src="./assets/icons/menu.svg" alt=""> 
-                            <div class="select-filtro"></div>
-                        </div>
-                        Meus Pets
+                    <li id="dashLink"> 
+                        <a  href="./userPet.html">
+                            <div class="icon">
+                                <img src="./assets/icons/menu.svg" alt=""> 
+                                <div class="select-filtro"></div>
+                            </div>
+                            Meus Pets
+                        </a>
                     </li>
-
-                    <li> 
-                        <div class="icon">
-                            <img src="./assets/icons/check.svg" alt="">
-                            <div class="select-filtro"></div>
-                        </div>
-                         Meus Likes
-                        </li>
                         
-                    <li> 
-                        <div class="icon">
-                            <img src="./assets/icons/settings.svg" alt="">
-                            <div class="select-filtro"></div>
-                        </div> 
-                        Configurar Filtro
+                    <li id="dashLink"> 
+                        <a href="">
+                            <div class="icon">
+                                <img src="./assets/icons/settings.svg" alt="">
+                                <div class="select-filtro"></div>
+                            </div> 
+                            Configurar Filtro
+                        </a>
                     </li>
                 </ul>
 
                 <div class="logout">
-                    <button onclick="logoutUser()">Sair</button>
+                    <button>Sair</button>
                 </div>
             </div>
             <div class="container-perfil">
@@ -76,12 +74,12 @@
 
                     <div class="perfil-logo">
                         <div class="perfil-img">
-                            <img id="imagem" class="img-perfil" src="" alt="">
-                            <label for="fotoPerfil"><img src="./assets/icons/user.svg"  alt="upload"></label>
+                            <img id="imagem" class="img-perfil" src="./assets/icons/userProfile.svg" alt="">
+                            <label for="fotoPerfil"><img src="./assets/icons/add-user.svg"  alt="upload"></label>
                             <input type="file" name="foto" id="fotoPerfil">
                         </div>
     
-                        <p id="nome-display">Nome</p>
+                        <p id="nome-display">Nome do usuario</p>
                     </div>
                     <div class="ln1">
                         <div class="col1">
@@ -94,7 +92,7 @@
                     <form action="" id="formUserData">
 
                         <div class="ln">
-                            <div class="col">
+                            <div class="col"">
                                 <label class="nome" for="nome">Nome</label>
                                 <input type="text" name="nome" id="nome">
                             </div>
@@ -118,7 +116,8 @@
                         <div class="ln">
                             <div class="col">
                                 <label for="cep">Cep</label>
-                                <input type="text" name="cep" id="cep">
+                                <input type="text" name="cep" id="cep" 
+                                onblur="pesquisacep(this.value);">
                             </div>
                             <div class="col">
                                 <label for="logradouro">Logradouro</label>
@@ -138,7 +137,7 @@
                         </div>
                         <div class="ln">
                             <div class="col">
-                                <button>Salvar alterações</button>
+                                <button>Salvar</button>
                             </div>
                         </div>
                     </form>
@@ -146,7 +145,9 @@
             </div>
         </div>
     </main>
+    <script src="./js/dashboard.js"></script>
     <script src="./js/imgLoad.js"></script>
     <script src="./js/perfil.js"></script>
+    <script src="./js/cep.js"></script>
 </body>
 </html>

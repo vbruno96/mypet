@@ -1,9 +1,9 @@
-// let containerLoginRegister = document.getElementById("openCloseLogin");
-// containerLoginRegister.addEventListener("click", () => {
-//   document
-//     .getElementById("containerLoginRegister")
-//     .classList.toggle("formHide");
-// });
+ let containerLoginRegister = document.getElementById("openCloseLogin");
+ containerLoginRegister.addEventListener("click", () => {
+   document
+     .getElementById("containerLoginRegister")
+     .classList.toggle("formHide");
+ });
 
 var loggedUser = null;
 
@@ -31,7 +31,7 @@ function submitLogin(e) {
       var data = JSON.parse(this.responseText);
       localStorage.setItem("jwtKey", "Bearer " + data.jwt);
       openCloseLogin()
-      getLoggedUser();
+//      getLoggedUser();
 
       document.getElementById("inputLoginEmail").value = "";
       document.getElementById("inputLoginPassword").value = "";
@@ -88,34 +88,34 @@ function submitRegister(e) {
 
 }
 
-function getLoggedUser() {
-  const jwtKey = localStorage.getItem("jwtKey");
-
-  if (!jwtKey) {
-    return;
-  }
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "/usuarios", true);
-  xhr.setRequestHeader('Authorization', jwtKey);
-  xhr.send();
-
-  xhr.onreadystatechange = function () {
-    if (this.readyState != 4) return;
-
-    if (this.status == 200) {
-      var data = JSON.parse(this.responseText);
-      loggedUser = data;
-      document.getElementById("entrarButton").style.display = "none";
-      document.getElementById("perfilButton").style.display = "block";
-      document.getElementById("logoutButton").style.display = "block";
-    }
-    if (this.status == 403) {
-      logoutUser();
-    }
-
-  };
-}
+//function getLoggedUser() {
+//  const jwtKey = localStorage.getItem("jwtKey");
+//
+//  if (!jwtKey) {
+//    return;
+//  }
+//
+//  var xhr = new XMLHttpRequest();
+//  xhr.open("GET", "/usuarios", true);
+//  xhr.setRequestHeader('Authorization', jwtKey);
+//  xhr.send();
+//
+//  xhr.onreadystatechange = function () {
+//    if (this.readyState != 4) return;
+//
+//    if (this.status == 200) {
+//      var data = JSON.parse(this.responseText);
+//      loggedUser = data;
+//      document.getElementById("entrarButton").style.display = "none";
+//      document.getElementById("perfilButton").style.display = "block";
+//      document.getElementById("logoutButton").style.display = "block";
+//    }
+//    if (this.status == 403) {
+//      logoutUser();
+//    }
+//
+//  };
+//}
 
 function logoutUser() {
   localStorage.removeItem("jwtKey");
@@ -182,4 +182,4 @@ function moveContentMobile() {
 document.getElementById("formLogin").onsubmit = submitLogin;
 document.getElementById("formRegister").onsubmit = submitRegister;
 
-window.onload = getLoggedUser;
+//window.onload = getLoggedUser;

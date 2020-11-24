@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style-pet.css">
+    <link rel="stylesheet" href="./css/style-global.css">
+    <link rel="stylesheet" href="./css/style-perfil.css">
+    <title>MeAdote</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="">
+                <p><span>Me</span>Adote</p>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="adote.html">Como Funciona</a></li>
+                    <li><a href="adote.html">Adote</a></li>
+                    <li><a href="google.com">Doe</a></li>
+                    <li><a href="adote.html">Sobre</a></li>
+                    <li><a href="adote.html">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="dashboard">
+                <h1>Meu perfil</h1>
+
+                <ul>
+                    <li id="dashLink"> 
+                        <a href="./userPerfil.html">
+                            <div class="icon">
+                                <img src="./assets/icons/user.svg" alt="">
+                                <div class="select-filtro"></div>
+                            </div>
+                            Informações Pessoais
+                        </a>
+                    </li>
+
+                    <li  id="dashLink"> 
+                        <a href="" style="color: #3cc7fa;" >
+                            <div class="icon">
+                                <img src="./assets/icons/menu.svg" alt=""> 
+                                <div class="select-filtro hoverIconS"></div>
+                            </div>
+                            Meus Pets
+                        </a>
+                    </li>
+                        
+                    <li  id="dashLink"> 
+                        <a href="">
+                            <div class="icon ">
+                                <img src="./assets/icons/settings.svg" alt="">
+                                <div class="select-filtro "></div>
+                            </div> 
+                            Configurar Filtro
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="logout">
+                    <button>Sair</button>
+                </div>
+            </div>
+            <div class="container-pet">
+                <div class="ln2">
+                    <div class="col2">
+                        <div class="titulo">
+                            <h1>Exibindo Pets para</h1>
+                        </div>
+
+                        <div class="option-container">
+                            <div class="doacao active2">
+                                <p>Doação</p>
+                            </div>
+                            <div class="adocao inative">
+                                <p>Adoção</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-pets">
+                    <div class="card">
+                        <div class="img-pet">
+                            <img src="./assets/image.png" alt="">
+                        </div>
+                        <div class="nome-pet">
+                            <h2>Nome do pet</h2>
+                        </div>
+                        <div class="likes-pet">
+                            <p>Likes:</p>
+                        </div>
+                        <div class="match-pet">
+                            <p>Matchs:</p>
+                        </div>
+                    </div>
+
+                    <div class="card-add">
+                        <div class="titulo-add">
+                            <h2>Adicionar novo pet</h2>
+                        </div>
+                        <div class="add-buttom">
+                           <div class="circulo">
+                               <p>+</p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/imgLoad.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>
