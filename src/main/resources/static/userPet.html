@@ -12,10 +12,10 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
+            <a href="/index.html" style="text-decoration: none"><div class="logo">
                 <img src="./assets/logo.png" alt="">
                 <p><span>Me</span>Adote</p>
-            </div>
+            </div></a>   
             <div class="nav-links">
                 <ul>
                     <li><a href="adote.html">Como Funciona</a></li>
@@ -64,7 +64,7 @@
                     </li>
                 </ul>
 
-                <div class="logout">
+                <div class="logout" onclick="logoutUser()">
                     <button>Sair</button>
                 </div>
             </div>
@@ -86,22 +86,7 @@
                     </div>
                 </div>
 
-                <div class="container-pets">
-                    <div class="card">
-                        <div class="img-pet">
-                            <img src="./assets/image.png" alt="">
-                        </div>
-                        <div class="nome-pet">
-                            <h2>Nome do pet</h2>
-                        </div>
-                        <div class="likes-pet">
-                            <p>Likes:</p>
-                        </div>
-                        <div class="match-pet">
-                            <p>Matchs:</p>
-                        </div>
-                    </div>
-
+                <div class="container-pets" id="container-pets">
                     <div class="card-add">
                         <div class="titulo-add">
                             <h2>Adicionar novo pet</h2>
@@ -116,7 +101,7 @@
             </div>
         </div>
     </main>
-    <script src="./js/imgLoad.js"></script>
     <script src="./js/dashboard.js"></script>
+    <script src="./js/userPet.js"></script>
 </body>
 </html>

@@ -251,8 +251,10 @@ public class UsuarioResource {
 	public ResponseEntity<Void> addImagemPerfil (@RequestParam MultipartFile userImage) throws ObjectNotFoundException, DataIntegrityViolationException, IllegalStateException, IOException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
-		File currentImage = new File("src/main/resources/static/userImages/" + usuario.getLink_imagem());
-		currentImage.delete();
+		if (usuario.getLink_imagem() != null) {
+			File currentImage = new File("src/main/resources/static/userImages/" + usuario.getLink_imagem());
+			currentImage.delete();
+		}		
 		
 		String imageExtension = userImage.getOriginalFilename().substring(userImage.getOriginalFilename().lastIndexOf("."));		
 		String fileName = "userImage_" + usuario.getId() + imageExtension;

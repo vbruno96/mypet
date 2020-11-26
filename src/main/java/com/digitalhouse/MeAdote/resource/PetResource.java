@@ -109,11 +109,13 @@ public class PetResource {
 			throw new ObjectNotFoundException();
 		}
 		
-		File currentImage = new File("src/main/resources/static/petImages/" + pet.getLink_imagem());
-		currentImage.delete();
+		if (pet.getLink_imagem() != null) {
+			File currentImage = new File("src/main/resources/static/petImages/" + pet.getLink_imagem());
+			currentImage.delete();
+		}		
 		
 		String imageExtension = petImage.getOriginalFilename().substring(petImage.getOriginalFilename().lastIndexOf("."));		
-		String fileName = "petImage_" + loggedUser.getId() + imageExtension;
+		String fileName = "petImage_" + pet.getId() + imageExtension;
 		
 		FileOutputStream stream = new FileOutputStream("src/main/resources/static/petImages/" + fileName, false);
 		stream.write(petImage.getBytes());

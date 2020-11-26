@@ -115,6 +115,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
 .img-pet img{

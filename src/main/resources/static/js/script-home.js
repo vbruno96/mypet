@@ -22,8 +22,6 @@ let box3 = document.querySelector('.box3')
 
 let fotoFiltro = document.querySelectorAll('.filtro-foto', )
 
-
-console.log(informacoes)
 window.addEventListener('scroll', function(){
     if(window.pageYOffset >= navbar.offsetHeight){
         navbar.style.backgroundColor = "#1e1b26"
