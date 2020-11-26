@@ -112,12 +112,17 @@ public class PetResource {
 		if (pet.getLink_imagem() != null) {
 			File currentImage = new File("src/main/resources/static/petImages/" + pet.getLink_imagem());
 			currentImage.delete();
-		}		
+		}
 		
 		String imageExtension = petImage.getOriginalFilename().substring(petImage.getOriginalFilename().lastIndexOf("."));		
 		String fileName = "petImage_" + pet.getId() + imageExtension;
 		
-		FileOutputStream stream = new FileOutputStream("src/main/resources/static/petImages/" + fileName, false);
+		File file = new File("src/main/resources/static/petImages/" + fileName);
+		if (!file.createNewFile()) {
+			throw new RuntimeException("Error creating file");
+		}		
+		
+		FileOutputStream stream = new FileOutputStream(file);
 		stream.write(petImage.getBytes());
 		stream.close();
 		
