@@ -29,6 +29,7 @@ import com.digitalhouse.MeAdote.model.PetFiltro;
 import com.digitalhouse.MeAdote.model.Usuario;
 import com.digitalhouse.MeAdote.service.PetService;
 import com.digitalhouse.MeAdote.service.UsuarioService;
+import com.digitalhouse.MeAdote.utils.Utils;
 
 
 @RestController
@@ -123,6 +124,8 @@ public class PetResource {
 		
 		pet.setLink_imagem(fileName);		
 		petService.update(pet);
+		
+		Utils.refreshStaticContent("petImages/" + fileName);
 		
 		return ResponseEntity.noContent().build();		
 	}
