@@ -11,9 +11,9 @@ public class Utils {
 		String sourcePath = "src/main/resources/static/" + filePath;	
 		String destinationPath = "target/classes/static/" + filePath;	
 		
-		Path source = Paths.get(sourcePath);
-		Path destination = Paths.get(destinationPath);
+//		Path source = Paths.get(sourcePath);
+//		Path destination = Paths.get(destinationPath);
 		
-		Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+//		Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
 	}
 }
