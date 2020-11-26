@@ -89,17 +89,14 @@ public class Pet implements BaseModel{
 	@JsonIgnore
 	private PetDesaparecido petDesaparecido;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
+	@OneToMany
 	private List<Match> matches;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
+	@OneToMany
 	private List<Like> likes;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne
 	@JoinColumn(name = "id_adocao", referencedColumnName = "id")
-	@JsonIgnore
 	private Adocao adocao;
 
 }
