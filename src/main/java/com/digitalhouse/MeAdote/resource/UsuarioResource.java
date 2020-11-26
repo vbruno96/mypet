@@ -33,6 +33,7 @@ import com.digitalhouse.MeAdote.model.Usuario;
 import com.digitalhouse.MeAdote.model.UsuarioCreate;
 import com.digitalhouse.MeAdote.service.PetService;
 import com.digitalhouse.MeAdote.service.UsuarioService;
+import com.digitalhouse.MeAdote.utils.Utils;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -265,6 +266,8 @@ public class UsuarioResource {
 		
 		usuario.setLink_imagem(fileName);		
 		usuarioService.update(usuario);
+		
+		Utils.refreshStaticContent("userImages/" + fileName);
 		
 		return ResponseEntity.noContent().build();		
 	}
