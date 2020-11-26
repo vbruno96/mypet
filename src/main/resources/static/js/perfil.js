@@ -16,7 +16,7 @@ function updateUserInfo() {
   document.getElementById("cidade").value = loggedUser.cidade;
   document.getElementById("bairro").value = loggedUser.bairro;
   document.getElementById("logradouro").value = loggedUser.logradouro;
-  document.getElementById("imagem").src = "/userImages/" + loggedUser.link_imagem;
+  document.getElementById("imagem").src = loggedUser.link_imagem;
 }
 
 function saveUser(e) {

@@ -20,7 +20,7 @@ function updatePetCards() {
 
         imageDiv = document.createElement("div");
         imageDiv.classList.add("img-pet");
-        imageDiv.style.backgroundImage = "url('/petImages/" + pet.link_imagem+"')";
+        imageDiv.style.backgroundImage = "url('" + pet.link_imagem + "')";
         card.appendChild(imageDiv);
 
         nomeDiv = document.createElement("div");

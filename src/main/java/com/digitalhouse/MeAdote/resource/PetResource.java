@@ -110,22 +110,10 @@ public class PetResource {
 			throw new ObjectNotFoundException();
 		}
 		
-		if (pet.getLink_imagem() != null) {
-			File currentImage = new File("src/main/resources/static/petImages/" + pet.getLink_imagem());
-			currentImage.delete();
-		}		
+		String link = Utils.uploadImage(petImage);
 		
-		String imageExtension = petImage.getOriginalFilename().substring(petImage.getOriginalFilename().lastIndexOf("."));		
-		String fileName = "petImage_" + pet.getId() + imageExtension;
-		
-		FileOutputStream stream = new FileOutputStream("src/main/resources/static/petImages/" + fileName, false);
-		stream.write(petImage.getBytes());
-		stream.close();
-		
-		pet.setLink_imagem(fileName);		
-		petService.update(pet);
-		
-		Utils.refreshStaticContent("petImages/" + fileName);
+		pet.setLink_imagem(link);		
+		petService.update(pet);		
 		
 		return ResponseEntity.noContent().build();		
 	}
