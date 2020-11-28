@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="./css/style-cadastroPet.css">
     <link rel="stylesheet" href="./css/style-pet.css">
     <link rel="stylesheet" href="./css/style-global.css">
     <link rel="stylesheet" href="./css/style-perfil.css">
@@ -91,7 +92,7 @@
                         <div class="titulo-add">
                             <h2>Adicionar novo pet</h2>
                         </div>
-                        <div class="add-buttom">
+                        <div onclick="mostrarModal()" class="add-buttom">
                            <div class="circulo">
                                <p>+</p>
                            </div>
@@ -101,7 +102,109 @@
             </div>
         </div>
     </main>
+
+    <!--Modal Para Cadastro de Novo Pet -->
+
+    <div class="container-modal" id="modal">
+        <div class="card-modal">
+            <div class="titulo-modal">
+                <h1>Adicionar um novo pet</h1>
+            </div>
+
+            <div class="passos">
+                <div class="primeiro" id="primeiro">
+                    <p>1</p>
+                </div>
+                <div class="segundo none" id="segundo">
+                    <p>2</p>
+                </div>
+            </div>
+
+            <div class="desc-modal">
+                <h3>Primeiro mostra pra gente umas fotos desse pet lindo</h3>
+            </div>
+
+            <div class="formulario-modal">
+                <form action="">
+
+                    <div class="img-pet-modal default" id="imgPets" >
+                        <label for="img1">
+                            <img class="img-pet " src="./assets/icons/image-gallery.svg">
+                        </label>
+                        <input type="file" name="img1" id="img1">
+                        <label for="img2">
+                            <img class="img-pet " src="./assets/icons/image-gallery.svg">
+                        </label>
+                        <input type="file" name="img2" id="img2">
+                        <label for="img3">
+                            <img class="img-pet " src="./assets/icons/image-gallery.svg">
+                        </label>
+                        <input type="file" name="img3" id="img3">
+                        <button onclick="proximoForm(event)" id="proximo">Proximo</button>
+                    </div>
+
+                    <div class="desc-pet-modal" id="filtroPets" >
+                        <div class="linha">
+                            <div class="coluna">
+                                <label for="nomePet">Nome</label>
+                                <input type="text" name="nomePet" id="nomePet">
+                            </div>
+                            
+                            <div class="coluna">
+                                <label for="tipoPet">Tipo do pet</label>
+                                <select name="tipoPet" id="tipoPet">
+                                    <option value="gato">Gato</option>
+                                    <option value="cachorro">Cachorro</option>
+                                </select>
+                            </div>
+
+                            <div class="coluna">
+                                <label for="peloPet">Pelo do pet</label>
+                                <select name="peloPet" id="peloPet">
+                                    <option value="curta">Curta</option>
+                                    <option value="longa">Longa</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <div class="coluna">
+                                <label for="personalidadePet">Personalidade do pet</label>
+                                <select name="personalidadePet" id="personalidadePet">
+                                    <option value="calmo">Calmo</option>
+                                    <option value="agitado">Agitado</option>
+                                </select>
+                            </div>
+
+                            <div class="coluna">
+                                <label for="sexoPet">Sexo do pet</label>
+                                <select name="sexoPet" id="sexoPet">
+                                    <option value="macho">Macho</option>
+                                    <option value="femea">Fêmea</option>
+                                </select>
+                            </div>
+
+                            <div class="coluna">
+                                <label for="portePet">Porte do Pet</label>
+                                <select name="portePet" id="portePet">
+                                    <option value="pequeno">Pequeno</option>
+                                    <option value="medio">Médio</option>
+                                    <option value="grande">Grande</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" id='concluir'>concluir</button>
+                    </div>
+
+                </form>
+                <div onclick="fecharModal()" class="btn-close-modal">
+                    <p>X</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./js/dashboard.js"></script>
     <script src="./js/userPet.js"></script>
+    <script src="./js/cadastrarPet.js"></script>
 </body>
 </html>

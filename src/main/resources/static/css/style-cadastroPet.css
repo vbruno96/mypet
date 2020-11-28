@@ -1,0 +1,239 @@
+.container-modal{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    filter: blur(40%);
+    display: none;
+    transition: 1s;
+}
+
+.card-modal{
+    width: 90%;
+    height: 90%;
+    background-color: #fafafa;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.btn-close-modal{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -3%;
+    right: -1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #fafafa;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #f33343;
+    border: 5px solid #f8f6f6;
+    transition: 0.2s;
+
+}
+
+.btn-close-modal:hover{
+    background-color: red;
+    transition: 0.3s;
+}
+
+.titulo-modal h1{
+    color: #333;
+    font-weight: 300;
+    cursor: default;
+}
+
+.desc-modal h3{
+    font-weight: 200;
+    cursor: default;
+}
+
+.passos{
+    margin: 2rem 0 ;
+    width: 30%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.primeiro, .segundo{
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid green;
+    border-radius: 50%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: green;
+    margin: 0 1rem;
+
+}
+
+.segundo.none{
+    border: 3px solid #333;
+    color: #333;
+}
+
+.formulario-modal{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.formulario-modal form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+form .img-pet-modal{
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.img-pet-modal input{
+    display: none;
+}
+
+.img-pet-modal label{
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    display: flex;
+    border: 10px solid rgba(153, 152, 152, 0.301);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.img-pet-modal label img{
+    width: 100%;
+    height: 100%;    
+}
+
+
+
+.formulario-modal button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 40px;
+    background-color: rgba(64, 136, 230, 0.993);
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: large;
+    font-weight: 200;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.formulario-modal button:hover{
+    background-color: royalblue;
+}
+
+form .desc-pet-modal{
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 0;
+
+}
+
+.desc-pet-modal label{
+    color: #333;
+    font-weight: 300;
+}
+
+.linha{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.coluna{
+    display: flex;
+    flex-direction: column;
+}
+
+#nomePet, #tipoPet, #peloPet, 
+#personalidadePet, #sexoPet, #portePet{
+
+    width: 300px;
+    height: 60px;
+    padding-left: 1rem;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    font-size: 24px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 5px;
+    color: #333;
+    font-weight: 300;
+}
+
+form .historia-pet{
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    position: absolute;
+    z-index: 2;
+}
+
+
+/* mostrar modal */ 
+
+.container-modal.mostrar{
+    display: flex;
+}
+
+
+.mostrar .card-modal{
+    animation: modal 1s ease ;
+}
+
+
+@keyframes modal{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

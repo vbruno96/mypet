@@ -6,10 +6,10 @@
 	</div>
 
 	<div>
-		<form id="img-upload" method="POST" enctype="multipart/form-data" action="/usuarios/imagemPerfil">
+		<form method="POST" enctype="multipart/form-data" action="/usuarios/imagemPerfil">
 			<table>
 				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-				<tr><td></td><td><input id="img-file" type="submit" value="Upload"/></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
 			</table>
 		</form>
 	</div>
@@ -23,30 +23,4 @@
 	</div>
 
 </body>
-
-<script>
-	var form = document.getElementById("img-upload");
-	form.onsubmit = uploadImagem;
-
-	var files;
-
-	function uploadImagem(e) {
-		e.preventDefault();
-
-		var jwtKey = "Bearer as"
-
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "/usuarios/imagemPerfil", true);
-		xhr.setRequestHeader('Authorization', jwtKey);
-		xhr.send(JSON.parse(
-			{
-				"userImage": files[0]
-			}
-		));
-	}
-
-	document.getElementById("img-file").onchange = ( (event) => {
-		files = event.target.files;
-	});
-</script>
 </html>
