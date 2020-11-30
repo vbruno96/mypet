@@ -137,8 +137,6 @@ form .img-pet-modal{
     height: 100%;    
 }
 
-
-
 .formulario-modal button{
     position: absolute;
     right: 0;
@@ -192,7 +190,7 @@ form .desc-pet-modal{
     flex-direction: column;
 }
 
-#nomePet, #tipoPet, #peloPet, 
+#nomePet, #especiePet, #peloPet, 
 #personalidadePet, #sexoPet, #portePet{
 
     width: 300px;

@@ -49,12 +49,18 @@ public class Pet implements BaseModel{
 	private Especie especie;
 	
 	@Column(length = 45, nullable = true)
-	private String link_imagem;
+	private String link_imagem_1;
+	
+	@Column(length = 45, nullable = true)
+	private String link_imagem_2;
+	
+	@Column(length = 45, nullable = true)
+	private String link_imagem_3;
 	
 	@Column(length = 45, nullable = false)
 	private String nome;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private Date data_nascimento;
 	
 	//M: Macho

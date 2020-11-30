@@ -198,5 +198,10 @@
     transition: 1s;
 }
 
+.img-container {
+    background-size: cover;
+    background-position: center;
+}
+
 
 

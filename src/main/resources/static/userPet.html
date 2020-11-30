@@ -88,11 +88,11 @@
                 </div>
 
                 <div class="container-pets" id="container-pets">
-                    <div class="card-add">
+                    <div onclick="mostrarModal()" class="card-add">
                         <div class="titulo-add">
                             <h2>Adicionar novo pet</h2>
                         </div>
-                        <div onclick="mostrarModal()" class="add-buttom">
+                        <div class="add-buttom">
                            <div class="circulo">
                                <p>+</p>
                            </div>
@@ -125,21 +125,21 @@
             </div>
 
             <div class="formulario-modal">
-                <form action="">
+                <form id="form-cadastro-pet">
 
                     <div class="img-pet-modal default" id="imgPets" >
-                        <label for="img1">
-                            <img class="img-pet " src="./assets/icons/image-gallery.svg">
+                        <label for="img1" class="img-container">
+                            <img class="img-pet" src="./assets/icons/image-gallery.svg">
                         </label>
-                        <input type="file" name="img1" id="img1">
-                        <label for="img2">
-                            <img class="img-pet " src="./assets/icons/image-gallery.svg">
+                        <input type="file" name="img1" id="img1" accept="image/png, image/jpeg, image/gif">
+                        <label for="img2" class="img-container">
+                            <img class="img-pet" src="./assets/icons/image-gallery.svg">
                         </label>
-                        <input type="file" name="img2" id="img2">
-                        <label for="img3">
-                            <img class="img-pet " src="./assets/icons/image-gallery.svg">
+                        <input type="file" name="img2" id="img2" accept="image/png, image/jpeg, image/gif">
+                        <label for="img3" class="img-container">
+                            <img class="img-pet" src="./assets/icons/image-gallery.svg">
                         </label>
-                        <input type="file" name="img3" id="img3">
+                        <input type="file" name="img3" id="img3" accept="image/png, image/jpeg, image/gif">
                         <button onclick="proximoForm(event)" id="proximo">Proximo</button>
                     </div>
 
@@ -147,53 +147,53 @@
                         <div class="linha">
                             <div class="coluna">
                                 <label for="nomePet">Nome</label>
-                                <input type="text" name="nomePet" id="nomePet">
+                                <input type="text" name="nomePet" id="nomePet" required>
                             </div>
                             
                             <div class="coluna">
-                                <label for="tipoPet">Tipo do pet</label>
-                                <select name="tipoPet" id="tipoPet">
-                                    <option value="gato">Gato</option>
-                                    <option value="cachorro">Cachorro</option>
+                                <label for="especiePet">Espécie</label>
+                                <select name="especiePet" id="especiePet">
+                                    <option value="1">Gato</option>
+                                    <option value="2">Cachorro</option>
                                 </select>
                             </div>
 
                             <div class="coluna">
-                                <label for="peloPet">Pelo do pet</label>
+                                <label for="peloPet">Pelagem</label>
                                 <select name="peloPet" id="peloPet">
-                                    <option value="curta">Curta</option>
-                                    <option value="longa">Longa</option>
+                                    <option value="C">Curta</option>
+                                    <option value="L">Longa</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="linha">
                             <div class="coluna">
-                                <label for="personalidadePet">Personalidade do pet</label>
+                                <label for="personalidadePet">Personalidade</label>
                                 <select name="personalidadePet" id="personalidadePet">
-                                    <option value="calmo">Calmo</option>
-                                    <option value="agitado">Agitado</option>
+                                    <option value="C">Calmo</option>
+                                    <option value="B">Brincalhão</option>
                                 </select>
                             </div>
 
                             <div class="coluna">
-                                <label for="sexoPet">Sexo do pet</label>
+                                <label for="sexoPet">Sexo</label>
                                 <select name="sexoPet" id="sexoPet">
-                                    <option value="macho">Macho</option>
-                                    <option value="femea">Fêmea</option>
+                                    <option value="M">Macho</option>
+                                    <option value="F">Fêmea</option>
                                 </select>
                             </div>
 
                             <div class="coluna">
-                                <label for="portePet">Porte do Pet</label>
+                                <label for="portePet">Porte</label>
                                 <select name="portePet" id="portePet">
-                                    <option value="pequeno">Pequeno</option>
-                                    <option value="medio">Médio</option>
-                                    <option value="grande">Grande</option>
+                                    <option value="P">Pequeno</option>
+                                    <option value="M">Médio</option>
+                                    <option value="G">Grande</option>
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" id='concluir'>concluir</button>
+                        <button type="submit" id='concluir'>Concluir</button>
                     </div>
 
                 </form>

@@ -31,7 +31,7 @@ window.addEventListener('scroll', function(){
     }
 })
 
-window.addEventListener('scroll', function(event){
+window.addEventListener('scroll', function(){
     informacoes.forEach((element, index) => {
         
         if(element.offsetTop <= window.pageYOffset + navbar.offsetHeight){
@@ -43,14 +43,14 @@ window.addEventListener('scroll', function(event){
 })
 
 
-window.addEventListener('scroll', function(event){
+window.addEventListener('scroll', function(){
     if(informacoes[1].offsetTop <=window.pageYOffset + navbar.offsetHeight ){
         box2.classList.add('active2')
         box2.style.right = "0"
     }
 })
 
-window.addEventListener('scroll', function(event){
+window.addEventListener('scroll', function(){
     if(informacoesLegais.offsetTop <=window.pageYOffset + navbar.offsetHeight ){
         box3.classList.add('active3')
         box3.style.top = "40%"

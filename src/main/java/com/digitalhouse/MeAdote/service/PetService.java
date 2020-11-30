@@ -32,6 +32,8 @@ public class PetService extends BaseService<Pet> {
 		antigo.setPorte(novo.getPorte());
 		antigo.setSexo(novo.getSexo());		
 		antigo.setPetDesaparecido(novo.getPetDesaparecido());
+		antigo.setPersonalidade(novo.getPersonalidade());
+		antigo.setTipoPelo(novo.getTipoPelo());
 		
 		return this.repository.save(antigo);
 	}

@@ -8,19 +8,18 @@ function updateUserInfo() {
 function updatePetCards() {
     container = document.getElementById("container-pets");
 
-    container.childNodes.forEach(child => {
-        if (child.classList && !child.classList.contains("card-add")) {
-            container.removeChild(child);
-        }
-    })
+    cards = document.querySelectorAll(".card");
+    if (cards) cards.forEach(card => container.removeChild(card));
 
     pets.forEach( pet => {
         card = document.createElement("div");
         card.classList.add("card");
 
+        imagem = pet.link_imagem_1 ? pet.link_imagem_1 : pet.link_imagem_2 ? pet.link_imagem_2 : pet.link_imagem_3;
+
         imageDiv = document.createElement("div");
         imageDiv.classList.add("img-pet");
-        imageDiv.style.backgroundImage = "url('/petImages/" + pet.link_imagem+"')";
+        if (imagem) imageDiv.style.backgroundImage = "url('" + imagem + "')";
         card.appendChild(imageDiv);
 
         nomeDiv = document.createElement("div");
@@ -46,6 +45,8 @@ function updatePetCards() {
 
         matchesDiv.appendChild(matches);
         card.appendChild(matchesDiv);
+
+        card.onclick = ( () => mostrarModal(pet));
         
         container.append(card);
     });

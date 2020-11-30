@@ -4,17 +4,11 @@ let dashboard = document.querySelector('.container')
 dashboard.style.height = `${heigth-80}px`
 
 var petFilter = {
-    "brincalhao": true,
-    "cachorro": true,
-    "calmo": true,
-    "femea": true,
-    "gato": true,
-    "grande": true,
-    "macho": true,
-    "medio": true,
-    "peloCurto": true,
-    "peloLongo": true,
-    "pequeno": true
+    "especie": ["gato", "cachorro"],
+    "tipoPelo": ["C", "L"],
+    "personalidade": ["C", "B"],
+    "sexo": ["M", "F"],
+    "porte": ["P", "M", "G"]
   };
 
 let tipoGato = document.querySelector('.gato')
@@ -22,13 +16,21 @@ let tipoCachorro  = document.querySelector('.cachorro')
 
 tipoCachorro.addEventListener('click', ()=>{
     tipoCachorro.classList.toggle('selected')
-    petFilter.cachorro = tipoCachorro.classList.contains("selected");
+
+    if (tipoCachorro.classList.contains("selected"))
+        petFilter.especie.push("cachorro");
+    else
+        petFilter.especie = petFilter.especie.filter(item => item != "cachorro");
     fetchPets(true);
 })
 
 tipoGato.addEventListener('click', ()=>{
     tipoGato.classList.toggle('selected')
-    petFilter.gato = tipoGato.classList.contains("selected");
+    
+    if (tipoGato.classList.contains("selected"))
+        petFilter.especie.push("gato");
+    else
+        petFilter.especie = petFilter.especie.filter(item => item != "gato");
     fetchPets(true);
 })
 
@@ -40,13 +42,21 @@ let pelagemLonga  = document.querySelector('.longa');
 
 pelagemCurta.addEventListener('click', ()=>{
     pelagemCurta.classList.toggle('selected');
-    petFilter.peloCurto = pelagemCurta.classList.contains("selected");
+
+    if (pelagemCurta.classList.contains("selected"))
+        petFilter.tipoPelo.push("C");
+    else
+        petFilter.tipoPelo = petFilter.tipoPelo.filter(item => item != "C");
     fetchPets(true);
 })
 
 pelagemLonga.addEventListener('click', ()=>{
     pelagemLonga.classList.toggle('selected');
-    petFilter.peloLongo = pelagemLonga.classList.contains("selected");
+    
+    if (pelagemLonga.classList.contains("selected"))
+        petFilter.tipoPelo.push("L");
+    else
+        petFilter.tipoPelo = petFilter.tipoPelo.filter(item => item != "L");
     fetchPets(true);
 })
 
@@ -58,13 +68,21 @@ let personalidadeBrincalhao  = document.querySelector('.brincalhao')
 
 personalidadeCalmo.addEventListener('click', ()=>{
     personalidadeCalmo.classList.toggle('selected');
-    petFilter.calmo = personalidadeCalmo.classList.contains("selected");
+    
+    if (personalidadeCalmo.classList.contains("selected"))
+        petFilter.personalidade.push("C");
+    else
+        petFilter.personalidade = petFilter.personalidade.filter(item => item != "C");
     fetchPets(true);
 })
 
 personalidadeBrincalhao.addEventListener('click', ()=>{
     personalidadeBrincalhao.classList.toggle('selected');
-    petFilter.brincalhao = personalidadeBrincalhao.classList.contains("selected");
+    
+    if (personalidadeBrincalhao.classList.contains("selected"))
+        petFilter.personalidade.push("B");
+    else
+        petFilter.personalidade = petFilter.personalidade.filter(item => item != "B");
     fetchPets(true);
 })
 
@@ -75,13 +93,21 @@ let sexofemea  = document.querySelector('.femea');
 
 sexoMacho.addEventListener('click', ()=>{
     sexoMacho.classList.toggle('selected');
-    petFilter.macho = sexoMacho.classList.contains("selected");
+    
+    if (sexoMacho.classList.contains("selected"))
+        petFilter.sexo.push("M");
+    else
+        petFilter.sexo = petFilter.sexo.filter(item => item != "M");
     fetchPets(true);
 })
 
 sexofemea.addEventListener('click', ()=>{
     sexofemea.classList.toggle('selected')
-    petFilter.femea = sexofemea.classList.contains("selected");
+    
+    if (sexofemea.classList.contains("selected"))
+        petFilter.sexo.push("F");
+    else
+        petFilter.sexo = petFilter.sexo.filter(item => item != "F");
     fetchPets(true);
 })
 
@@ -93,19 +119,31 @@ let porteG  = document.querySelector('.grande');
 
 porteP.addEventListener('click', ()=>{
     porteP.classList.toggle('selected');
-    petFilter.pequeno = porteP.classList.contains("selected");
+    
+    if (porteP.classList.contains("selected"))
+        petFilter.porte.push("P");
+    else
+        petFilter.porte = petFilter.porte.filter(item => item != "P");
     fetchPets(true);
 })
 
 porteM.addEventListener('click', ()=>{
     porteM.classList.toggle('selected');
-    petFilter.medio = porteM.classList.contains("selected");
+
+    if (porteM.classList.contains("selected"))
+        petFilter.porte.push("M");
+    else
+        petFilter.porte = petFilter.porte.filter(item => item != "M");
     fetchPets(true);
 })
 
 porteG.addEventListener('click', ()=>{
     porteG.classList.toggle('selected');
-    petFilter.grande = porteG.classList.contains("selected");
+
+    if (porteG.classList.contains("selected"))
+        petFilter.porte.push("G");
+    else
+        petFilter.porte = petFilter.porte.filter(item => item != "G");
     fetchPets(true);
 })
 
@@ -160,13 +198,13 @@ function getLoggedUser() {
 
 function updateUserInfo() {
     document.getElementById("nomeUser").innerHTML = loggedUser.nome;
-    document.getElementById("imagemUser").src = "/userImages/" + loggedUser.link_imagem;
+    document.getElementById("imagemUser").src = loggedUser.link_imagem;
 }
 
 //Insere um pet na card
 function addPetCard(pet) {
-    let link_imagem = pet.link_imagem;
-    document.querySelector("#imagem-pet").style.backgroundImage = "url('/petImages/" + link_imagem+"')";
+    let link_imagem = [pet.link_imagem_1, pet.link_imagem_2, pet.link_imagem_3].find( a => a != null);
+    document.querySelector("#imagem-pet").style.backgroundImage = "url('" + link_imagem + "')";
 }
 
 //Adquire um novo pet e insere na card
@@ -191,10 +229,10 @@ function fetchPets(getPet = false) {
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open("PATCH", "/pets", true);
+    xhr.open("GET", "/pets/adote?especie=" + petFilter.especie.join() + "&tipoPelo=" + petFilter.tipoPelo.join() + "&personalidade=" + petFilter.personalidade.join()
+                                           + "&sexo=" + petFilter.sexo.join() + "&porte=" + petFilter.porte.join(), true);
 
     xhr.setRequestHeader('Authorization', jwtKey);
-    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(petFilter));
 
     xhr.onreadystatechange = function () {

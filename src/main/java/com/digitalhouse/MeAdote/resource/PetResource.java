@@ -1,10 +1,9 @@
 package com.digitalhouse.MeAdote.resource;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +36,8 @@ import com.digitalhouse.MeAdote.utils.Utils;
 public class PetResource {
 	
 	PetService petService;
-	UsuarioService usuarioService;
+	UsuarioService usuarioService;	
+	ReentrantLock lock = new ReentrantLock();
 	
 	@Autowired
 	public PetResource(PetService petService, UsuarioService usuarioService) {
@@ -50,7 +50,9 @@ public class PetResource {
 		Usuario loggedUser = this.usuarioService.getLoggedUser();
 		
 		pet.setUsuario(loggedUser);
-		pet.setLink_imagem(null);
+		pet.setLink_imagem_1(null);
+		pet.setLink_imagem_2(null);
+		pet.setLink_imagem_3(null);
 		
 		pet = this.petService.create(pet);
 
@@ -67,13 +69,17 @@ public class PetResource {
 	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Pet pet) throws ObjectNotFoundException, DataIntegrityViolationException {
 		pet.setId(id);
 		
+		lock.lock();
+		
 		Usuario loggedUser = this.usuarioService.getLoggedUser();
 		
-		if (pet.getUsuario().getId() != loggedUser.getId()) {
+		if (!loggedUser.getPets().contains(pet)) {
 			throw new ObjectNotFoundException();
 		}
 		
 		this.petService.update(pet);
+		
+		lock.unlock();
 		
 		return ResponseEntity.noContent().build();		
 	}
@@ -102,7 +108,9 @@ public class PetResource {
 	}
 	
 	@PostMapping("/{id}/imagem")
-	public ResponseEntity<Void> addImagemPet (@PathVariable Long id, @RequestParam MultipartFile petImage) throws ObjectNotFoundException, DataIntegrityViolationException, IllegalStateException, IOException {		
+	public ResponseEntity<Void> addImagemPet (@PathVariable Long id, @RequestParam MultipartFile petImage, @RequestParam (required = false, defaultValue = "1") String idImagem) throws ObjectNotFoundException, DataIntegrityViolationException, IllegalStateException, IOException {		
+		lock.lock();
+		
 		Usuario loggedUser = this.usuarioService.getLoggedUser();
 		Pet pet = this.petService.findById(id);
 		
@@ -112,14 +120,29 @@ public class PetResource {
 		
 		String link = Utils.uploadImage(petImage);
 		
-		pet.setLink_imagem(link);		
-		petService.update(pet);		
+		switch (idImagem) {
+			case "1": pet.setLink_imagem_1(link); break;
+			case "2": pet.setLink_imagem_2(link); break;
+			default: pet.setLink_imagem_3(link); break;
+		}
+				
+		petService.update(pet);
+		
+		lock.unlock();
 		
 		return ResponseEntity.noContent().build();		
 	}
 	
-	@PatchMapping
-	public ResponseEntity<List<Pet>> filterPets(@RequestBody PetFiltro petFiltro) throws ObjectNotFoundException {
+	@GetMapping("/adote")
+	public ResponseEntity<List<Pet>> filterPets(@RequestParam String especie, @RequestParam String tipoPelo, @RequestParam String personalidade, @RequestParam String sexo, @RequestParam String porte) throws ObjectNotFoundException {
+		
+		PetFiltro petFiltro = PetFiltro.builder().gato(especie.contains("gato")).cachorro(especie.contains("cachorro"))
+												 .peloCurto(tipoPelo.contains("C")).peloLongo(tipoPelo.contains("L"))
+									   			 .calmo(personalidade.contains("C")).brincalhao(personalidade.contains("B"))
+											     .macho(sexo.contains("M")).femea(sexo.contains("F"))
+												 .pequeno(porte.contains("P")).medio(porte.contains("M")).grande(porte.contains("G"))
+												 .build();				
+		
 		List<Pet> pets = this.petService.getFromFilter(petFiltro);
 	
 		return ResponseEntity.ok(pets);
