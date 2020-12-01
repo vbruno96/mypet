@@ -7,7 +7,7 @@ html{
 }
 
 .saida{
-    animation: saida 0.8s ease;
+    animation: saida 0.4s ease;
     z-index: 2;
 }
 
@@ -18,7 +18,7 @@ html{
 
 
 .like{
-    animation: like 0.7s ease;
+    animation: like 0.4s ease;
 }
 
 .no-like{

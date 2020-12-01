@@ -1,238 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300;400;500;600&display=swap');
-
-*{
-  padding: 0;
-  margin: 0;
-  font-family: 'Varta';
-  box-sizing: border-box;
-}
-body{
-  height: 100vh;
-  max-width: 100%;
-}
-
 .navbar{
-  max-width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  background-color: #7c3eb6;
-  align-items: center;
-  padding: 0 1rem;
+  background-color: #1e1b26;
   position: relative;
-  z-index: 4;
-}
-
-
-.logo{
-  display: flex;
-  align-items: center;
-}
-.logo a{
-  text-decoration: none;
-  color: #fafafa;
-  font-size: 30px;
-}
-.logo img{
-  margin-top: -10px;
-}
-
-.nav-links{
-  display: flex;
-  width: 40%;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-links a{
-  text-decoration: none;
-  margin-right: 20pxpx;
-  font-size: 20px;
-  padding: 0.4rem;
-  color: #fafafa;
-
-  opacity: 1;
-
-  transition: opacity 1500ms;
-}
-
-.nav-links a:hover{
-
-  color: #222;
+  box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.548);
+  position: relative;
+  z-index: 201;
 }
 
 .container{
-
-  display: flex;
   width: 100%;
-  align-items: center;
+  height: 88.5vh;
+  display: flex;
 }
+
 
 .dashboard{
   width: 25%;
+  min-width: 350px;
   height: 100%;
-  border-right: 1px solid #f0f0f0;
-  background-color: white;
-  box-shadow: 6px 0px 15px -2px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 5;
-  overflow: hidden;
-}
-
-.nav-user{
-  max-width: 100%;
-  height: 50px;
-  background-color: #f0f0f0;
-  padding: 0.4rem;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  background-color: #1e1b26;
+  position: relative;
+  border-right: 10px solid #fafafa;
+  border-left:  10px solid #fafafa;
+  border-bottom:  5px solid #fafafa;
+  border-top:  5px solid #fafafa;
+  z-index: 200;
 }
 
-.perfil-user{
-  display: flex;
-  align-items: center;
-}
-
-.nav-user img{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 15px;
-}
-.nav-user a{
-  text-decoration: none;
-  color: #333;
-  font-size: 20px;
-  font-weight: 100;
-}
-
-.menu{
-  margin-right: 1rem;
-  cursor: pointer;
-  color: #444;
-}
 
 .controles-dash{
   width: 100%;
-  height: 30px;
+  height: 80px;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   padding-left: 1rem;
-}
-
-.filtro{ 
-  margin-right: 20px;
-  font-size: 20px;
-  position: relative;
-  cursor: pointer;
-  display: flex;
+  font-size: 30px;
+  color: #fafafa;
 }
 
 .container-filtro{
+  height: 70%;
+  width: 100%;
   display: flex;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
+  align-items: center;
+  padding: 0 1rem;
+  color: #fafafa;
 }
 
-.active::after{
-  content: "";
-  height: 3px;
-  width: 100%;
-  background-color: #9B51E0;
-  position: absolute;
-  border-radius: 10px;
-  top: 25px;
-
+.container-filtro p{
+  color: #fafafa;
+  font-weight: 300;
 }
+
 
 .card-container{
   width: 75%;
   height: 100%;
-  background-position: center;
-  background-size: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+ 
 }
 
+.card-container::before{
+  content: "";
+  width: 100%;
+  height: 88.5%;
+  position: absolute;
+  background-color: rgba(19, 0, 0, 0.315);
+  filter: blur(1.6px);
+  overflow: hidden;
+  z-index: 2;
+}
 .card-container::after{
   content: "";
   width: 100%;
-  height: 100%;
-  background-color: #1c0bb850;
+  height: 88.5%;
   position: absolute;
+  background-color: rgba(247, 0, 0, 0.199);
+  background-image: url(../assets/3813007.jpg);  
+  background-size: 20%;
+  filter: blur(3px);
+  overflow: hidden;
   z-index: 1;
 }
 
 
 .card{
-  width: 400px;
-  height: 95%;
-  background-color: white;  
-  border-radius: 10px;
-  border: 1px solid #a0a0a0d3;
+  width: 40%;
+  min-width: 400px;
+  min-height: 500px;
+  height: 90%;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem;
+  border: 1px solid #333;
+  box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.89);
   position: relative;
-  z-index: 2;
+  z-index: 3;
+}
+
+.img{
+  width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  background-color: violet;
 }
 
 .controles-escolha{
   width: 100%;
-  height: 80px;
+  height: 20%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 0 0 10px 10px ;
-  position: absolute;
-  bottom: 0;
+  justify-content: space-around;
+  padding: 0 5rem;
 }
 
-.btn-like, .btn-dislike{
-  margin: 0 5px;
-  color: #a0a0a0;
-}
-.btn-like:hover{
-  cursor: pointer;
-  color: rgb(1, 156, 1);
-}
-.btn-dislike:hover{
-  cursor: pointer;
-  color: rgb(206, 10, 3);
+.btn-like i, .btn-dislike i{
+  color: #1e1b26;
+  transition: 1s;
 }
 
-.card-meus-likes{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.btn-like i:hover{
+  color: rgb(7, 175, 7);
+  transition: 0.5s;
 }
 
-.like-card{
-  width: 100px;
-  height: 150px;
-  background-color: #fff;
-  border: 1px solid #a0a0a0;
-  border-radius: 5%;
-  margin: 5px;
-  margin-top: 2.5%;
-  position: relative;
-
-}
-.fa-times{
-  color: #333; 
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  opacity: 20%;
+.btn-dislike i:hover{
+  color: #ca2626;
+  transition: 0.5s;
 }
 
-.fa-times:hover{
-  color: rgba(179, 11, 11, 0.863); 
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  opacity: 100%;
-  cursor: pointer;
-  animation: fadeIn 1s ease;
+
+.selected{
+  
 }

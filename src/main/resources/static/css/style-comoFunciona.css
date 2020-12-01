@@ -1,0 +1,274 @@
+
+
+.container{
+    max-width: 100%;
+    height: 100vh;
+    padding: 0 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.chamada{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 40px;
+    color: #333;
+    position: relative;
+    left: -100%;
+}
+
+.chamada a{
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    font-size: 30px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    background-color: #fff;
+    border: 1px solid #333;
+
+    outline: none;
+
+    color: #333;
+    cursor: pointer;
+
+}
+.chamada a:hover{
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+   
+    background-color: #F30060;
+    border: 1px solid #F30060;
+
+    outline: none;
+
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.cardFiltro{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 30px;
+    margin: 10px;
+}
+.cardFiltro input{
+    width: 30px;
+    height: 30px;
+    
+}
+.cardFiltro label{
+    width: 85%;
+    margin-left: 10px;
+}
+
+
+
+.card{
+    position: relative;
+    border: 1px solid #dadada;
+    height: 500px;
+    margin-top: 80px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    z-index: 2;
+
+    -webkit-box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.2);
+    -moz-box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.2);
+    box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.2);
+    right: -100%;
+}
+
+
+
+.frase{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #333;
+}
+.frase a{
+    text-decoration: none;
+    color: #3b75cd;
+}
+.frase a:hover{
+    text-decoration: none;
+    color: #F30060;
+}
+
+.me{
+    color: #CD3B7C;
+}
+
+.controles{
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.like{
+    width: 80px;
+    height: 80%;
+    border-radius: 50px;
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.deslike{
+    width: 80px;
+    height: 80%;
+    border-radius: 50px;
+    margin-right: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.deslike:hover{ 
+    color: red;
+}
+.like:hover{
+    color: rgb(4, 170, 4);
+}
+
+.animate-rigth{
+    animation: rigth-enter 1.5s ease;
+    right: 0;
+}
+.animate-fim{
+    animation: animate-fim 0.4s ease; 
+
+}
+.animate-saida{
+    animation: left-out 0.4s ease;
+}
+.animate-left{
+    animation: left-enter 1.2s ease;
+    left: 0;
+}
+
+@keyframes rigth-enter{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes left-enter{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes left-out{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes animate-fim{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateY(200%);
+    }
+}
+
+.rotate{
+    animation: rotate 0.5s ease;
+}
+@keyframes rotate{
+    0%{
+        transform-origin: bottom;
+        transform:  translateY(0)
+    }
+    100%{
+        transform-origin: bottom;
+        transform:  translateY(-160%)
+    }
+}
+
+
+
+/* mobile */ 
+
+@media(max-width: 600px){
+    .navbar{
+        width: 100%;
+        height: 80px;
+        padding:  1rem 0;
+        display: flex;
+        justify-content: space-between;
+        background-color: #333;
+        align-items: center;
+        position: fixed;
+        z-index: 3;
+    }
+
+    .nav-links{
+        display: none;
+    }
+
+    .chamada{
+        display: none;
+    }
+
+    .container{
+        max-width: 100%;
+        height: 95vh;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .card{
+        border: 1px solid #dadada;
+        height: 85vh;
+        width: 95%;
+        margin-top: 80px;
+        border-radius: 10px;
+        background-color: #fafafa;
+    
+        -webkit-box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.2);
+        -moz-box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.2);
+        box-shadow: 10px 10px 17px -6px rgba(0,0,0,0.2);
+    }
+
+    
+      
+
+    
+}
