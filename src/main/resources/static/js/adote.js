@@ -35,7 +35,7 @@ tipoGato.addEventListener('click', ()=>{
 })
 
 
-// Marca selecionado para Pelagem
+ //Marca selecionado para Pelagem
 
 let pelagemCurta = document.querySelector('.curto');
 let pelagemLonga  = document.querySelector('.longa');
@@ -204,7 +204,7 @@ function updateUserInfo() {
 //Insere um pet na card
 function addPetCard(pet) {
     let link_imagem = [pet.link_imagem_1, pet.link_imagem_2, pet.link_imagem_3].find( a => a != null);
-    document.querySelector("#imagem-pet").style.backgroundImage = "url('" + link_imagem + "')";
+    document.querySelector("#img").style.backgroundImage = "url('" + link_imagem + "')";
 }
 
 //Adquire um novo pet e insere na card
@@ -261,7 +261,7 @@ function cardSelectMovement() {
         card.classList.remove('like')
         card.classList.add('entrada')
         getNewPet();
-    }, 700)
+    }, 300)
 }
 
 function likePet() {
