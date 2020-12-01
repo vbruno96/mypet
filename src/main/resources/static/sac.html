@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style-login.css">
+    <link rel="stylesheet" href="./css/style-global.css">
+    <link rel="stylesheet" href="./css/style-sac.css">
+    <title>MeAdote</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/index.html" style="text-decoration: none"><div class="logo">
+              <img src="./assets/logo.png" alt="">
+              <p><span>Me</span>Adote</p>
+            </div></a>   
+            <div class="nav-links">
+                <ul>
+                    <li><a href="./comoFunciona.html">Como Funciona</a></li>
+                    <li><a href="./adote.html">Adote</a></li>
+                    <li><a href="google.com">Doe</a></li>
+                    <li><a href="./adote.html">Sobre</a></li>
+                    <li><a href="./sac.html">Contato</a></li>
+                    <li class="entrar-btn" id="entrarButton" onclick="openCloseLogin()">Entrar</li>
+                    <li id="perfilButton" style="display: none"><a href="./userPerfil.html">Meu Perfil</a></li>
+                    <li id="logoutButton" style="display: none" onclick="logoutUser()">Sair</li>
+                  </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="contatos">
+            <div class="flip-content">
+                <div class="flipper">
+                    <div class="cartao-frente">
+                        <img src="./assets/perguntas-frequentes.svg" alt="">
+                        <p>Perguntas frequentes</p>
+                    </div>
+                    <div class="cartao-verso">
+                        <p>Qual a sua dúvida?</p>
+                        <a href="">
+                            Clica aqui que <br> a gente responde.
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-content">
+                <div class="flipper">
+                    <div class="cartao-frente">
+                        <img src="./assets/e-mail.svg" alt="">
+                        <p>Mande um e-mail</p>
+                    </div>
+                    <div class="cartao-verso">
+                        <p>Respondemos em no <br> máximo dois dias úteis:</p>
+                        <a href="mailto:atendimento@meadote.com?subject=Informação">
+                            atendimento@meadote.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-content">
+                <div class="flipper">        
+                        <div class="cartao-frente">
+                            <img src="./assets/redes-sociais.svg" alt="">
+                            <p>Mande uma DM</p>
+                        </div>
+                        <div class="cartao-verso">
+                            <a href="">Facebook</a>
+                            <a href="">Instagram</a>
+                            <a href="">Twitter</a>
+                            <a href="">Youtube</a>
+                        </div>
+                </div>
+            </div>
+            <div class="flip-content">
+                <div class="flipper">
+                    <div class="cartao-frente">
+                        <img src="./assets/whats.svg" alt="">
+                        <p>Chama no WhatsApp</p> 
+                    </div>
+                    <div class="cartao-verso">
+                        <p>O jeito mais rápido <br> de falar com a gente:</p>
+                        <a href="https://api.whatsapp.com/send?phone=+5511980739733">
+                            +55 11 980739733
+                        </a>
+                            </div>
+                </div>
+            </div>
+            <div class="flip-content">
+                <div class="flipper">
+                    <div class="cartao-frente">
+                        <img src="./assets/onde-estamos.svg" alt="">
+                        <p>Venha nos visitar</p>
+                    </div>
+                    <div class="cartao-verso">
+                        <p>Nosso endereço:</p>
+                        <a href="https://www.google.com.br/maps/place/MeAdote/@-23.6063316,-46.6060633,17z/data=!4m8!1m2!2m1!1smeadote!3m4!1s0x94ce5b5b5eccb3fd:0x8c35c8f82fc05719!8m2!3d-23.6063316!4d-46.6038692">
+                            Rua Anatole France nº153<br>Vila Moinho Velho<br>São Paulo - SP
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-content">
+                <div class="flipper">
+                    <div class="cartao-frente">
+                        <img src="./assets/avalie-nos.svg" alt="">
+                        <p>Avalie-nos</p>
+                    </div>
+                    <div class="cartao-verso">
+                        <p>Acha que merecemos<br>cinco estrelas?</p>
+                        <a href="">
+                            Avalie nosso serviço<br>no Google.
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="containerLoginRegister" class="containerLoginRegister formHide">
+        <div id="close" class="close" onclick="openCloseLogin()">X</div>
+        <div class="contentLoginRegister">
+          <div class="info">
+            <p>JÁ TEM CADASTRO?</p>
+            <button class="btn btn-secondary" onclick="moveFormsContainer()">
+              Realizar login
+            </button>
+          </div>
+  
+          <div class="info">
+            <p>AINDA NÃO TEM CADASTRO?</p>
+            <button class="btn btn-secondary" onclick="moveFormsContainer()">
+              Realizar cadastro
+            </button>
+          </div>e
+  
+          <div id="formsContainer" class="formsContainer formsContainerMoveLeft">
+            <form id="formLogin" class="formLogin">
+              <h2>Login</h2>
+              <div class="form-group">
+                <input class="input" type="email" class="form-control" id="inputLoginEmail" placeholder="Email" required />
+              </div>
+              <div class="form-group">
+                <input class="input" type="password" class="form-control" id="inputLoginPassword" placeholder="Senha" required />
+              </div>
+              <button type="submit" class="btn btn-secondary">Login</button>
+              <p id="wrongUserPass" style="color:red; text-align: center; display: none;">Usuário ou senha inválidos</p>
+              <a href="#" class="text-center">Esqueci minha senha</a>
+            </form>
+  
+            <form id="formRegister" class="formRegister formHide">
+              <h2>Registre-se</h2>
+  
+              <div class="form-group">
+                <input class="input" type="text" class="form-control" id="inputRegisterName" placeholder="Nome" required />
+              </div>
+  
+              <div class="form-group">
+                <input class="input" type="email" class="form-control" id="inputRegisterEmail" placeholder="Email" required />
+              </div>
+              <div class="form-group">
+                <input class="input" type="password" class="form-control" id="inputRegisterPassword" placeholder="Senha" required />
+              </div>
+              <div class="form-group">
+                <input class="input" type="password" class="form-control" id="inputRegisterPasswordConfirm"
+                  placeholder="Confirmar senha" required />
+              </div>
+              <button type="submit" class="btn btn-secondary">Cadastrar</button>
+              <p id="passNotMatch" style="color:red; text-align: center; display: none;">As senhas não coincidem</p>
+              <p id="userAreadyExists" style="color:red; text-align: center; display: none;">O usuário já existe</p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script src="./js/script-home.js"></script>
+      <script src="./js/login.js"></script>
+</body>
+</html>
