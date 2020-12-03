@@ -269,6 +269,31 @@ function cardSelectMovement() {
 function likePet() {
     card.classList.add('like')
     cardSelectMovement();
+
+    const jwtKey = localStorage.getItem("jwtKey");
+
+    if (!jwtKey) {
+        window.location.replace("/index.html");
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/usuarios/likes", true);
+
+    xhr.setRequestHeader('Authorization', jwtKey);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(displayedPet.id));
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState != 4) return;
+
+        if (this.status == 200) {
+
+        }
+        if (this.status == 403) {
+            window.location.replace("/index.html");
+        }
+
+    };
 }
 
 function dislikePet() {

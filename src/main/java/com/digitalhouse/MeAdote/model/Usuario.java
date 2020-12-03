@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -72,16 +73,16 @@ public class Usuario implements BaseModel {
 	@JsonIgnore
 	private List<Pet> pets;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@ManyToMany(mappedBy="matches")
 	@JsonIgnore
-	private List<Match> matches;
+	private List<Pet> matches;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@ManyToMany(mappedBy="likes")
 	@JsonIgnore
-	private List<Like> likes;
+	private List<Pet> likes;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="adocao")
 	@JsonIgnore
-	private List<Adocao> adocoes;
+	private List<Pet> adocoes;
 	
 }

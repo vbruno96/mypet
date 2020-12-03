@@ -22,10 +22,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectAlreadyExistsException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
-import com.digitalhouse.MeAdote.model.Adocao;
-import com.digitalhouse.MeAdote.model.Like;
 import com.digitalhouse.MeAdote.model.Login;
-import com.digitalhouse.MeAdote.model.Match;
+import com.digitalhouse.MeAdote.model.Pet;
 import com.digitalhouse.MeAdote.model.Role;
 import com.digitalhouse.MeAdote.model.Usuario;
 import com.digitalhouse.MeAdote.model.UsuarioCreate;
@@ -104,13 +102,13 @@ public class UsuarioResource {
 	public ResponseEntity<Void> addLike (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		Like like = new Like();
-		like.setPet(petService.findById(idPet));
-		like.setUsuario(usuario);
+		Pet pet = petService.findById(idPet);
 		
-		usuario.getLikes().add(like);
+		//usuario.getLikes().add(pet);
+		pet.getLikes().add(usuario);
+		this.petService.update(pet);
 		
-		this.usuarioService.update(usuario);
+		//this.usuarioService.update(usuario);
 		
 		return ResponseEntity.noContent().build();		
 	}
@@ -119,10 +117,10 @@ public class UsuarioResource {
 	public ResponseEntity<Void> deleteLike (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		List<Like> likes = usuario.getLikes();
+		List<Pet> likes = usuario.getLikes();
 		
-		Like likeRemover = likes.stream().filter(like -> like.getPet().getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
-		likes.remove(likeRemover);
+		Pet petRemover = likes.stream().filter(like -> like.getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
+		likes.remove(petRemover);
 		
 		this.usuarioService.update(usuario);
 		
@@ -130,10 +128,10 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/likes")
-	public ResponseEntity<List<Like>> getLikes () throws ObjectNotFoundException {		
+	public ResponseEntity<List<Pet>> getLikes () throws ObjectNotFoundException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
-		List<Like> likes = usuario.getLikes();
+		List<Pet> likes = usuario.getLikes();
 		
 		return ResponseEntity.ok(likes);	
 	}
@@ -142,11 +140,9 @@ public class UsuarioResource {
 	public ResponseEntity<Void> addMatch (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		Match match = new Match();
-		match.setPet(petService.findById(idPet));
-		match.setUsuario(usuario);
+		Pet pet = petService.findById(idPet);
 		
-		usuario.getMatches().add(match);
+		usuario.getMatches().add(pet);
 		
 		this.usuarioService.update(usuario);
 		
@@ -157,10 +153,10 @@ public class UsuarioResource {
 	public ResponseEntity<Void> deleteMatch (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		List<Match> matches = usuario.getMatches();
+		List<Pet> matches = usuario.getMatches();
 		
-		Match matchRemover = matches.stream().filter(match -> match.getPet().getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
-		matches.remove(matchRemover);
+		Pet petRemover = matches.stream().filter(match -> match.getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
+		matches.remove(petRemover);
 		
 		this.usuarioService.update(usuario);
 		
@@ -168,10 +164,10 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/matches")
-	public ResponseEntity<List<Match>> getMatches () throws ObjectNotFoundException {		
+	public ResponseEntity<List<Pet>> getMatches () throws ObjectNotFoundException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
-		List<Match> matches = usuario.getMatches();
+		List<Pet> matches = usuario.getMatches();
 		
 		return ResponseEntity.ok(matches);	
 	}
@@ -180,11 +176,9 @@ public class UsuarioResource {
 	public ResponseEntity<Void> addAdocao (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		Adocao adocao = new Adocao();
-		adocao.setPet(petService.findById(idPet));
-		adocao.setUsuario(usuario);
+		Pet pet = petService.findById(idPet);
 		
-		usuario.getAdocoes().add(adocao);
+		usuario.getAdocoes().add(pet);
 		
 		this.usuarioService.update(usuario);
 		
@@ -195,10 +189,10 @@ public class UsuarioResource {
 	public ResponseEntity<Void> deleteAdocao (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		List<Adocao> adocoes = usuario.getAdocoes();
+		List<Pet> adocoes = usuario.getAdocoes();
 		
-		Adocao adocaoRemover = adocoes.stream().filter(adocao -> adocao.getPet().getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
-		adocoes.remove(adocaoRemover);
+		Pet petRemover = adocoes.stream().filter(adocao -> adocao.getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
+		adocoes.remove(petRemover);
 		
 		this.usuarioService.update(usuario);
 		
@@ -206,10 +200,10 @@ public class UsuarioResource {
 	}
 	
 	@GetMapping("/adocoes")
-	public ResponseEntity<List<Adocao>> getAdocoes () throws ObjectNotFoundException {		
+	public ResponseEntity<List<Pet>> getAdocoes () throws ObjectNotFoundException {		
 		Usuario usuario= usuarioService.getLoggedUser();	
 		
-		List<Adocao> adocoes = usuario.getAdocoes();
+		List<Pet> adocoes = usuario.getAdocoes();
 		
 		return ResponseEntity.ok(adocoes);	
 	}

@@ -10,8 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -95,14 +96,16 @@ public class Pet implements BaseModel{
 	@JsonIgnore
 	private PetDesaparecido petDesaparecido;
 	
-	@OneToMany
-	private List<Match> matches;
+	@ManyToMany()
+	@JoinTable(name = "matches", joinColumns = @JoinColumn(name = "id_pet"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	private List<Usuario> matches;
 	
-	@OneToMany
-	private List<Like> likes;
+	@ManyToMany()
+	@JoinTable(name = "likes", joinColumns = @JoinColumn(name = "id_pet"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	private List<Usuario> likes;
 	
 	@OneToOne
 	@JoinColumn(name = "id_adocao", referencedColumnName = "id")
-	private Adocao adocao;
+	private Usuario adocao;
 
 }
