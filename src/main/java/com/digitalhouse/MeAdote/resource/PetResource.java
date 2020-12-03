@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -135,6 +134,7 @@ public class PetResource {
 	
 	@GetMapping("/adote")
 	public ResponseEntity<List<Pet>> filterPets(@RequestParam String especie, @RequestParam String tipoPelo, @RequestParam String personalidade, @RequestParam String sexo, @RequestParam String porte) throws ObjectNotFoundException {
+		Usuario loggedUser = this.usuarioService.getLoggedUser();
 		
 		PetFiltro petFiltro = PetFiltro.builder().gato(especie.contains("gato")).cachorro(especie.contains("cachorro"))
 												 .peloCurto(tipoPelo.contains("C")).peloLongo(tipoPelo.contains("L"))
@@ -143,7 +143,7 @@ public class PetResource {
 												 .pequeno(porte.contains("P")).medio(porte.contains("M")).grande(porte.contains("G"))
 												 .build();				
 		
-		List<Pet> pets = this.petService.getFromFilter(petFiltro);
+		List<Pet> pets = this.petService.getFromFilter(loggedUser, petFiltro);
 	
 		return ResponseEntity.ok(pets);
 	}

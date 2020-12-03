@@ -10,6 +10,7 @@ import com.digitalhouse.MeAdote.exception.DataIntegrityViolationException;
 import com.digitalhouse.MeAdote.exception.ObjectNotFoundException;
 import com.digitalhouse.MeAdote.model.Pet;
 import com.digitalhouse.MeAdote.model.PetFiltro;
+import com.digitalhouse.MeAdote.model.Usuario;
 import com.digitalhouse.MeAdote.repository.PetRepository;
 
 @Service
@@ -38,8 +39,10 @@ public class PetService extends BaseService<Pet> {
 		return this.repository.save(antigo);
 	}
 	
-	public List<Pet> getFromFilter(PetFiltro petFiltro) {
+	public List<Pet> getFromFilter(Usuario loggedUser, PetFiltro petFiltro) {
 		List<Pet> pets = this.repository.findAll();
+		
+		pets = pets.stream().filter(pet -> !pet.getUsuario().equals(loggedUser)).collect(Collectors.toList());
 		
 		if (!petFiltro.isGato()) {
 			pets = pets.stream().filter(pet -> !pet.getEspecie().getNome().equals("Cat")).collect(Collectors.toList());
