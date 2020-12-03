@@ -188,7 +188,9 @@ function getLoggedUser() {
         if (this.status == 200) {
             var data = JSON.parse(this.responseText);
             loggedUser = data;
-            updateUserInfo();
+            document.getElementById("entrarButton").style.display = "none";
+            document.getElementById("perfilButton").style.display = "block";
+            document.getElementById("logoutButton").style.display = "block";
         }
         if (this.status == 403) {
             window.location.replace("/index.html");
@@ -196,9 +198,9 @@ function getLoggedUser() {
     };
 }
 
-function updateUserInfo() {
-    document.getElementById("nomeUser").innerHTML = loggedUser.nome;
-    document.getElementById("imagemUser").src = loggedUser.link_imagem;
+function logoutUser() {
+    localStorage.removeItem("jwtKey");
+    window.location.replace("/index.html");
 }
 
 //Insere um pet na card

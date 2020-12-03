@@ -175,4 +175,9 @@ function moveContentMobile() {
 document.getElementById("formLogin").onsubmit = submitLogin;
 document.getElementById("formRegister").onsubmit = submitRegister;
 
-window.onload = getLoggedUser;
+currentWindowOnLoad = window.onload;
+window.onload = function () {
+  getLoggedUser();
+  if (currentWindowOnLoad)
+    currentWindowOnLoad();
+}

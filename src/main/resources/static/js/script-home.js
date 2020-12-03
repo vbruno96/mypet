@@ -14,7 +14,6 @@ let navbar = document.querySelector('nav')
 
 let informacoes = document.querySelectorAll('.informacoes')
 let informacoesLegais = document.querySelector('.informacoes-legais')
-let infoHeader = document.querySelector('.info-header').offsetTop
 
 let box = document.querySelectorAll('.box')
 let box2 = document.querySelector('.box2')
