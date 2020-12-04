@@ -286,8 +286,8 @@ function likePet() {
     xhr.onreadystatechange = function () {
         if (this.readyState != 4) return;
 
-        if (this.status == 200) {
-
+        if (this.status == 204) {
+            window.location.replace("/petPerfil.html?idPet=" + displayedPet.id);
         }
         if (this.status == 403) {
             window.location.replace("/index.html");
