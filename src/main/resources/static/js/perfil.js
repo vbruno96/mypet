@@ -92,6 +92,6 @@ function getLoggedUser() {
    };
  }
 
-window.onload = getLoggedUser;
-
-document.getElementById("formUserData").onsubmit = saveUser;
+//window.onload = getLoggedUser;
+//
+//document.getElementById("formUserData").onsubmit = saveUser;

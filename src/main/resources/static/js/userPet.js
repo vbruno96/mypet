@@ -1,6 +1,22 @@
 var loggedUser = null;
 var pets = null;
 
+let doacao = document.querySelector('.doacao');
+let adocao = document.querySelector('.adocao2');
+let doacaoContainer = document.querySelector('.container-pet-doacao');
+let adocaoContainer = document.querySelector('.container-pet-adocao');
+
+doacao.addEventListener('click', function(){
+    adocaoContainer.style.zIndex = "0"
+    doacaoContainer.style.zIndex  = "1"
+})
+
+adocao.addEventListener('click', function(){
+    doacaoContainer.style.zIndex  = "0"
+    adocaoContainer.style.zIndex = "1"
+})
+
+
 function updateUserInfo() {
 
 }
@@ -112,4 +128,4 @@ function getPets() {
     };
 }
 
-window.onload = ( () => {getLoggedUser(); getPets();});
+//window.onload = ( () => {getLoggedUser(); getPets();});
