@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style-global.css">
+  <link rel="stylesheet" href="./css/style-sobre.css"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+ 
+
+  <title>Me Adote</title>
+
+</head>
+<body >
+  <header>
+    <nav class="navbar">
+        <a href="/index.html" style="text-decoration: none">
+          <div class="logo">
+            <img src="./assets/logo.png" alt="">
+            <p><span>Me</span>Adote</p>
+          </div>
+        </a>   
+        <div class="nav-links">
+            <ul>
+                <li><a href="./comoFunciona.html">Como Funciona</a></li>
+                <li><a href="./adote.html">Adote</a></li>
+                <li><a href="#">Doe</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="./sac.html">Contato</a></li>
+                <li class="entrar-btn" id="entrarButton" onclick="openCloseLogin()">Entrar</li>
+                <li id="perfilButton" style="display: none"><a href="./userPerfil.html">Meu Perfil</a></li>
+                <li id="logoutButton" style="display: none" onclick="logoutUser()">Sair</li>
+              </ul>
+        </div>
+    </nav>
+</header>
+  
+  
+
+  <div class="container">
+    <section id="w3">  
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+          <h2 class="titleAbout"><span>QUEM</span><br>SOMOS?</h2>
+          <p class="w3-text text-right">Uma empresa voltada para resolver problemas do mundo Pet. 
+            <a href="#nossoTime">Conheça nosso time</a>.
+          </p>
+        </div>
+      
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+          <h2 class="titleAbout"><span>O QUE</span><br>FAZEMOS?</h2>
+          <p class="text-right"> Visamos proporcionar de forma fácil e prática o 
+            processo de adoção de um pet.</p>
+            
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+          <h2 class="titleAbout"><span>COMO</span><br>NOS ENCONTRAR?</h2>
+          <p class="text-right">Estamos localizados em Alphaville - SP, venha nos fazer uma visita.
+            Para maiores informações acesse a página de contatos.
+          </p>
+          <a href = "sac.html">
+            <button type="button" class="btnAbout btn btn-outline-secondary float-right">Contato</button>
+          </a>
+        </div>
+      </div>
+    </sectiton>
+
+    
+
+    <h2 id="nossoTime">Nosso Time</h2>
+    <div class="row">
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="cardTeam">        
+          <img src="assets/fabio.jpg" class="img-fluid img-thumbnail" alt="Fábio F. da Silva">
+          <h4>Fábio F. da Silva</h4>
+          <p>(Java Studant)</p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="cardTeam">        
+            <img src="assets/gisele.jpeg" class="img-fluid img-thumbnail" alt="Gisele">
+            <h4>Gisele Merces</h4>
+            <p>(Java Studant)</p>
+          </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="cardTeam">        
+          <img src="assets/mariana.jpeg"  class="img-fluid img-thumbnail" alt="Mariana">
+          <h4>Mariana Gonçalves</h4>
+          <p>(Java Studant)</p>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="cardTeam">        
+          <img src="assets/rafael.jpeg"  class="img-fluid img-thumbnail" alt="Rafael">
+          <h4>Rafael Campos</h4>
+          <p>(Java Studant)</p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="cardTeam">        
+          <img src="assets/vinicius.jpg" class="img-fluid img-thumbnail" alt="Vinicius Tito">
+          <h4>Vinicius Tito</h4>
+          <p>(Java Studant)</p>
+        </div>
+    </div>
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>

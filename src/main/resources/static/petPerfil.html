@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style-petPerfil.css">
+    <link rel="stylesheet" href="./css/style-global.css">
+    <title>MeAdote - Perfil do pet</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/index.html" style="text-decoration: none"><div class="logo">
+              <img src="./assets/logo.png" alt="">
+              <p><span>Me</span>Adote</p>
+            </div></a>   
+            <div class="nav-links">
+                <ul>
+                    <li><a href="./comoFunciona.html">Como Funciona</a></li>
+                    <li><a href="./adote.html">Adote</a></li>
+                    <li><a href="#">Doe</a></li>
+                    <li><a href="./sobre.html">Sobre</a></li>
+                    <li><a href="./sac.html">Contato</a></li>
+                    <li class="entrar-btn" id="entrarButton" onclick="openCloseLogin()">Entrar</li>
+                    <li id="perfilButton" style="display: none"><a href="./userPerfil.html">Meu Perfil</a></li>
+                    <li id="logoutButton" style="display: none" onclick="logoutUser()">Sair</li>
+                  </ul>
+            </div>
+        </nav>
+        <main>
+            <div class="container-petPerfil">
+                <section class="perfil-user">
+                    <div class="logo-perfil">
+                        <img src="/assets/perfilOng.jpg" alt="Perfil">
+                        <p class="nome">Ong 4 patas</p>
+                        <button onclick="mostrarModal()" class="contato">Contato</button>
+                    </div>
+                </section>
+                <section class="perfil-pet">
+                   <div class="img-pet-container">
+                       <div class="previa-img">
+                           <div class="img selecionada">
+                               <img id="imgPrevia" src="./assets/dogadocao.jpg" alt="">
+                           </div>
+                           <div class="img">
+                               <img id="imgPrevia" src="./assets/dogadocao2.jpg" alt="">
+                           </div>
+                           <div class="img">
+                               <img id="imgPrevia" src="./assets/dogadocao3.jpg" alt="">
+                           </div>
+                       </div>
+                       <div class="img-selecionada">
+                            <img id="imgSelecionada" src="./assets/dogadocao.jpg" alt="">
+                       </div>
+                   </div>
+                    <div class="descricao-container">
+                        <div class="descricao">
+                            <div class="nome-ln">
+                                <p class="nome-pet">July</p>
+                            </div>
+                            <div class="personalidade-ln">
+                                <p class="personalidade" >
+                                    <img src="./assets/icons/personalidade.png" alt="">
+                                    Personalidade:</p>
+                                    <p>resposta</p>
+                            </div>
+                            <div class="pelagem-ln">
+                                <p class="pelagem">
+                                    <img src="./assets/icons/pelagem.png" alt="">
+                                    Pelagem: </p>
+                                    <p>resposta</p>
+                            </div>
+                            <div class="especie-ln">
+                                <p class="especie">
+                                    <img src="./assets/icons/especie.png" alt="">
+                                    Espécie: </p>
+                                    <p>resposta</p>
+                            </div>
+                            <div class="porte-ln">
+                                <p class="porte">
+                                    <img src="./assets/icons/porte.png" alt="">
+                                    Porte: </p>
+                                    <p>resposta</p>
+                            </div>
+                            <div class="sexo-ln">
+                                <p class="sexo">
+                                    <img src="./assets/icons/sexo.png" alt="">
+                                    Sexo: </p>
+                                    <p>resposta</p>
+                            </div>
+                     </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </header>
+
+    <div class="modal-contato " id="modal">
+        <div class="card-modal-contato"  >
+            <div class="titulo">
+                <h1>Que bom que goustou desse pet lindo</h1>
+            </div>
+            <div class="mensagem">
+                <p>Estamos muito feliz em saber que nosso querido pet está a um passo
+                    de ter um novo lar, por favor entre em contato com a gente através 
+                    das redes sociais a baixo, estamos ansiosos por você.
+                </p>
+            </div>
+
+            <div class="contato-link">
+
+                <div class="whatsapp">
+                    <a href="">
+                        <img src="./assets/icons/wppIcon.png" alt="">
+                        Whatsapp</a>
+                </div>
+
+                <div class="instagram">
+                    <a href="">
+                        <img src="./assets/icons/igIcon.png" alt="">
+                        Instagram
+                    </a>
+                </div>
+
+                <div class="facebook">
+                    <a href="">
+                        <img src="./assets/icons/fbIcon.png" alt="">
+                        Facebook</a>
+                    </a>
+                </div>
+            </div>
+
+            <div  class="fechar-btn">
+                X
+            </div>
+        </div>
+    </div>
+    <script src="./js/petPerfil.js"></script>
+    <script src="https://kit.fontawesome.com/019ab32386.js" crossorigin="anonymous"></script>
+</body>
+</html>
