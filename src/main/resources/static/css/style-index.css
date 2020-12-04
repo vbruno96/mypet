@@ -203,17 +203,14 @@ video{
 }
 
 .img img{
-  width: 100%;
+  width: auto;
   height: 100%;
 }
 
 .img2 img{
-  width: 100%;
+  width: auto;
   height: 100%;
 }
-
-
-
 
 .filtro-foto{
   width: 100%;
