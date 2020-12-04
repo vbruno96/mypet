@@ -1,0 +1,293 @@
+.navbar{
+    background-color: #1e1b26;
+    position: relative;
+}
+
+.container-petPerfil {
+    width: 100%;
+    height: 88.4vh ;
+    background-color: #fafafa;
+    padding: 0 4rem;
+}
+
+.perfil-user{
+    width: 100%;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.logo-perfil{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo-perfil img{
+    width: 60px;
+    margin-right: 10px;
+    border: 2px solid #1e1b26;
+    border-radius: 50%;
+}
+
+.logo-perfil p{
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.logo-perfil button{
+    margin-left: 3%;
+    width: 100px;
+    height: 40px;
+    background-color: #1e1b26;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: #fafafa;
+    font-weight: 300;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo-perfil button:hover{
+    
+    background-color: #127912;
+    color: #fafafa;
+    transition: 0.2s;
+    font-weight: 300;    
+}
+
+.perfil-pet{
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+    display: flex;
+    border: 1px solid #1e1b2646;
+    padding: 0.3rem;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.11);
+}
+
+
+.img-pet-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.descricao-container{
+    width: 30%;
+    height: 100%;
+}
+
+.nome-ln{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #1e1b26;
+    font-weight: 300;
+}
+
+.personalidade-ln, .pelagem-ln, .especie-ln,
+.porte-ln, .sexo-ln{
+    width: 100%;
+    height: 60px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.personalidade img, .pelagem img, .especie img, 
+.porte img, .sexo img{
+
+    width: 40px;
+    margin-right: 5px;
+}
+
+.personalidade, .pelagem, .especie,
+.porte, .sexo{
+
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    font-weight: 300;
+}
+
+.previa-img{
+    width: 20%;
+    height: 100%;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    justify-content: center;
+}
+
+.img{
+    width: 100%;
+    height: 30%;
+    background-color: aqua;
+    margin: 5px 0;
+    display: flex;
+    border-radius: 5px;
+    position: relative;
+}
+
+.img img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+}
+
+
+
+
+.img.selecionada{
+    border: 4px solid #f100d1;
+    
+}
+
+.img-selecionada{
+    width: 80%;
+    background-color: red;
+    border-radius: 5px;
+    margin-left: 3px;
+}
+
+.img-selecionada img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    
+}
+
+
+/* modal contato */ 
+
+.modal-contato{
+    width: 100%;
+    height: 100vh;
+    background-color: #1e1b26d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+
+.card-modal-contato{
+    width: 60%;
+    height: 40%;
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.titulo{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo h1{
+    font-size: 30px;
+    color: #1e1b26;
+}
+
+.mensagem{
+    width: 80%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.contato-link{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.whatsapp, .instagram, .facebook{
+    margin: 0 10px;
+}
+
+a img{
+    width: 50px;
+    margin-right: 5px;
+}
+
+.contato-link a{
+     display: flex;
+     align-items: center;
+     text-decoration: none;
+     color: rgb(54, 54, 54);
+}
+
+.whatsapp a:hover{
+    color: #127912;
+}
+
+.instagram a:hover{
+    color: #f100d1;
+}
+
+.facebook a:hover{
+    color: #052283;
+}
+
+.fechar-btn{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fafafa;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+/* mostrar modal */ 
+
+.modal-contato.mostrar{
+    display: flex;
+}
+
+
+.mostrar .card-modal-contato{
+    animation: modal 1s ease ;
+}
+
+
+@keyframes modal{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

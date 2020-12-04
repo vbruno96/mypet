@@ -1,12 +1,58 @@
+.navbar{
+    position: relative;
+}
+.container{
+    height: 88.4vh;
+    position: relative;
+}
 
-.container-pet{
+.container-pet-adocao{
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    background-color: #fafafa;
+    right: 0;
+    z-index: 2;
+}
+
+.img-pet2{
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.img-pet2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.desistir-btn{
+    width: 100%;
+    height: 30px;
+    background-color: #f30035;
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.desistir-btn a{
+    color: #fafafa;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.container-pet-doacao{
     width: 75%;
     height: 100%;
     display: flex;
     overflow: hidden;
     display: flex;
-    padding-top: 6rem;
     position: relative;
+    z-index: 0;
+    background-color: #fafafa;
 }
 
 .ln2{
@@ -78,8 +124,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-
 }
 
 .card, .card-add{
