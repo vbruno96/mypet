@@ -104,11 +104,8 @@ public class UsuarioResource {
 		
 		Pet pet = petService.findById(idPet);
 		
-		//usuario.getLikes().add(pet);
 		pet.getLikes().add(usuario);
 		this.petService.update(pet);
-		
-		//this.usuarioService.update(usuario);
 		
 		return ResponseEntity.noContent().build();		
 	}
@@ -117,12 +114,12 @@ public class UsuarioResource {
 	public ResponseEntity<Void> deleteLike (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		List<Pet> likes = usuario.getLikes();
+		Pet petRemover = petService.findById(idPet);		
 		
-		Pet petRemover = likes.stream().filter(like -> like.getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
-		likes.remove(petRemover);
+		List<Usuario> likes = petRemover.getLikes();		
+		likes.remove(usuario);
 		
-		this.usuarioService.update(usuario);
+		this.petService.update(petRemover);
 		
 		return ResponseEntity.noContent().build();		
 	}
@@ -142,9 +139,8 @@ public class UsuarioResource {
 		
 		Pet pet = petService.findById(idPet);
 		
-		usuario.getMatches().add(pet);
-		
-		this.usuarioService.update(usuario);
+		pet.getMatches().add(usuario);
+		this.petService.update(pet);
 		
 		return ResponseEntity.noContent().build();		
 	}
@@ -153,12 +149,12 @@ public class UsuarioResource {
 	public ResponseEntity<Void> deleteMatch (@RequestBody Long idPet) throws ObjectNotFoundException, DataIntegrityViolationException {		
 		Usuario usuario= usuarioService.getLoggedUser();
 		
-		List<Pet> matches = usuario.getMatches();
+		Pet petRemover = petService.findById(idPet);		
 		
-		Pet petRemover = matches.stream().filter(match -> match.getId() == idPet).findFirst().orElseThrow(() -> new ObjectNotFoundException("idPet"));
-		matches.remove(petRemover);
+		List<Usuario> matches = petRemover.getMatches();		
+		matches.remove(usuario);
 		
-		this.usuarioService.update(usuario);
+		this.petService.update(petRemover);
 		
 		return ResponseEntity.noContent().build();		
 	}

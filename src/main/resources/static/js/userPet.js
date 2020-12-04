@@ -84,6 +84,7 @@ function updatePetCardsAdocao() {
 
         imageDiv = document.createElement("div");
         imageDiv.classList.add("img-pet");
+        imageDiv.onclick = ( () => window.location.replace("/petPerfil.html?idPet=" + pet.id));
         if (imagem) imageDiv.style.backgroundImage = "url('" + imagem + "')";
         card.appendChild(imageDiv);
 
@@ -102,8 +103,8 @@ function updatePetCardsAdocao() {
 
         desistirDiv.appendChild(desistir);
         card.appendChild(desistirDiv);
-        
-        card.onclick = ( () => window.location.replace("/petPerfil.html?idPet=" + pet.id))
+
+        card.onclick = ( () => desistirPet(pet) );
 
         container.append(card);
     });
@@ -188,6 +189,31 @@ function getPetsAdocao() {
             var data = JSON.parse(this.responseText);
             pets = data;
             updatePetCardsAdocao();
+        } else if (this.status == 403) {
+            window.location.replace("/index.html");
+        }
+
+    };
+}
+
+function desistirPet(pet) {
+    const jwtKey = localStorage.getItem("jwtKey");
+
+    if (!jwtKey) {
+        window.location.replace("/index.html");
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", "/usuarios/likes", true);
+    xhr.setRequestHeader('Authorization', jwtKey);
+    xhr.setRequestHeader('Content-Type', "application/json");
+    xhr.send(JSON.stringify(pet.id));
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState != 4) return;
+
+        if (this.status == 204) {
+            getPetsAdocao();
         } else if (this.status == 403) {
             window.location.replace("/index.html");
         }
