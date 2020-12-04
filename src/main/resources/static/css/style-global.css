@@ -2,8 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Clicker+Script");
 
-
-
 * {
   padding: 0;
   margin: 0;
@@ -12,97 +10,94 @@
   box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
 
 nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    transition: 0.4s;
-    background-color: #1e1b2611;
-    z-index: 5;  
-}
-  
-.logo{
-    display: flex;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  transition: 0.4s;
+  background-color: #1e1b2611;
+  z-index: 5;
 }
 
-.logo img{
-    width: 45px;
-    margin-right: 5px;
-    margin-top: -2%;
-}
-  
-.logo p{
-    color: #fafafa;
-    font-size: 30px;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-.logo span{
-    color: #ff3d8b;
-    font-size: 30px;
-    font-weight: 500;
+.logo img {
+  width: 45px;
+  margin-right: 5px;
+  margin-top: -2%;
 }
-  
+
+.logo p {
+  color: #fafafa;
+  font-size: 30px;
+}
+
+.logo span {
+  color: #ff3d8b;
+  font-size: 30px;
+  font-weight: 500;
+}
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    color: #f0f0f0;
+  list-style-type: none;
+  display: flex;
+  color: #f0f0f0;
 }
-  
+
 nav ul li {
-    padding: 0.5rem;
-    transition: 0.5s;
-    cursor: pointer;
+  padding: 0.5rem;
+  transition: 0.5s;
+  cursor: pointer;
 }
-  
+
 nav ul li a:hover {
-    overflow: visible;
-    cursor: pointer;
-    color: #F30060;
+  overflow: visible;
+  cursor: pointer;
+  color: #f30060;
 }
-  
+
 nav ul li a {
-    text-decoration: none;
-    color: rgb(194, 194, 194);
+  text-decoration: none;
+  color: rgb(194, 194, 194);
 }
 
-.entrar-btn{
-    background-color: #F30060;
-    width: 100px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    color: #fafafa;
-    margin-left: 1rem;
+.entrar-btn {
+  background-color: #f30060;
+  width: 100px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  color: #fafafa;
+  margin-left: 1rem;
 }
 
-
-.entrar-btn:hover{
-      color: #fafafa;
-      background-color: #f30061ce;
+.entrar-btn:hover {
+  color: #fafafa;
+  background-color: #f30061ce;
 }
-  
 
-/* Main container */ 
+/* Main container */
 
-.container{
-    max-width: 100%;
-    height: 100vh;
-    overflow: hidden;  
+.container {
+  max-width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .input {
@@ -163,19 +158,17 @@ nav ul li a {
   z-index: 10;
 }
 
-
-
 /* Dashboard */
 
-.dashboard ul{
+.dashboard ul {
   margin-top: 2rem;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
 }
 
-.dashboard ul li a{
-  padding: 1rem 0 ;
+.dashboard ul li a {
+  padding: 1rem 0;
   cursor: pointer;
   margin: 10px;
   font-size: 20px;
@@ -187,10 +180,8 @@ nav ul li a {
 }
 
 .dashboard ul li a:hover {
- color: #3cc7fa;
+  color: #3cc7fa;
 }
-
-
 
 .dashboard ul li img {
   width: 50px;
@@ -199,14 +190,14 @@ nav ul li a {
   overflow: hidden;
 }
 
-.icon{
+.icon {
   position: relative;
   width: 50px;
   height: 50px;
-  margin-right: 10px;    
+  margin-right: 10px;
 }
 
-.select-filtro{
+.select-filtro {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -217,23 +208,22 @@ nav ul li a {
   transition: 1s;
 }
 
-.hoverIcon{
+.hoverIcon {
   background-color: transparent;
   transition: 0.5s;
 }
 
-
-.hoverIconS{
+.hoverIconS {
   background-color: transparent;
   transition: 0.5s;
 }
 
-.logout{
+.logout {
   position: absolute;
   bottom: 10px;
 }
 
-.logout button{
+.logout button {
   width: 90px;
   height: 40px;
   border: none;
@@ -244,8 +234,8 @@ nav ul li a {
   font-weight: 100;
   border-radius: 20px;
   cursor: pointer;
-}   
+}
 
-.logout button:hover{
+.logout button:hover {
   background-color: #f30035;
 }
