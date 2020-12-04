@@ -270,6 +270,8 @@ function likePet() {
     card.classList.add('like')
     cardSelectMovement();
 
+    var idPet = displayedPet.id;
+
     const jwtKey = localStorage.getItem("jwtKey");
 
     if (!jwtKey) {
@@ -281,13 +283,13 @@ function likePet() {
 
     xhr.setRequestHeader('Authorization', jwtKey);
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(displayedPet.id));
+    xhr.send(JSON.stringify(idPet));
 
     xhr.onreadystatechange = function () {
         if (this.readyState != 4) return;
 
-        if (this.status == 200) {
-
+        if (this.status == 204) {
+            window.location.replace("/petPerfil.html?idPet=" + idPet);
         }
         if (this.status == 403) {
             window.location.replace("/index.html");

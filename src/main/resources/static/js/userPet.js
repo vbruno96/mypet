@@ -128,4 +128,4 @@ function getPets() {
     };
 }
 
-//window.onload = ( () => {getLoggedUser(); getPets();});
+window.onload = ( () => {getLoggedUser(); getPets();});
