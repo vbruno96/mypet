@@ -53,7 +53,7 @@ function displayPet(pet) {
 
         document.getElementById("nome").innerHTML = pet.nome;
         document.getElementById("personalidade").innerHTML = pet.personalidade == "C" ? "Calmo" : "Brincalhão";
-        document.getElementById("pelagem").innerHTML = pet.tipoPelo == "C" ? "Curto" : "Longo";
+        document.getElementById("pelagem").innerHTML = pet.tipoPelo == "C" ? "Curta" : "Longa";
         document.getElementById("especie").innerHTML = pet.especie.nome;
         document.getElementById("porte").innerHTML = pet.porte == "P" ? "Pequeno" : pet.porte == "M" ? "Médio" : "Grande";
         document.getElementById("sexo").innerHTML = pet.sexo == "M" ? "Macho" : "Fêmea";

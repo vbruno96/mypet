@@ -224,7 +224,7 @@ function filtro(){
 
         frase.innerHTML = `Viu só, é simples e rápido.
 
-        <a href="#" onclick="cardInterativo()">Mas oque faço agora?</a>`
+        <a href="#" onclick="cardInterativo()">Mas o que faço agora?</a>`
     },2000)
 
    
