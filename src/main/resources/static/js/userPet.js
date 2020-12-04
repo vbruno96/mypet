@@ -16,11 +16,6 @@ adocao.addEventListener('click', function(){
     adocaoContainer.style.zIndex = "1"
 })
 
-
-function updateUserInfo() {
-
-}
-
 function updatePetCardsDoacao() {
     container = document.getElementById("container-pets-doacao");
 
@@ -102,9 +97,11 @@ function updatePetCardsAdocao() {
         desistir.innerHTML = "Desistir";
 
         desistirDiv.appendChild(desistir);
+        desistirDiv.onclick = ( () => desistirPet(pet) );
+        
         card.appendChild(desistirDiv);
 
-        card.onclick = ( () => desistirPet(pet) );
+        
 
         container.append(card);
     });
@@ -136,7 +133,6 @@ function getLoggedUser() {
             document.getElementById("entrarButton").style.display = "none";
             document.getElementById("perfilButton").style.display = "block";
             document.getElementById("logoutButton").style.display = "block";
-            updateUserInfo();
         } else if (this.status == 403) {
             window.location.replace("/index.html");
         }

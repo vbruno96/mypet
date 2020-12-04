@@ -50,7 +50,8 @@ function displayPet(pet) {
                 foundFirst = true;
             }
         }
-        
+
+        document.getElementById("nome").innerHTML = pet.nome;
         document.getElementById("personalidade").innerHTML = pet.personalidade == "C" ? "Calmo" : "Brincalhão";
         document.getElementById("pelagem").innerHTML = pet.tipoPelo == "C" ? "Curto" : "Longo";
         document.getElementById("especie").innerHTML = pet.especie.nome;
